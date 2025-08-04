@@ -18,11 +18,11 @@ const testimonialsData: Testimonial[] = [
 ];
 
 const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => (
-  <figure className="bg-white dark:bg-slate-800/50 p-8 rounded-xl border border-slate-200/80 dark:border-slate-700/80 flex flex-col h-full">
-    <blockquote className="text-lg text-slate-600 dark:text-slate-300 italic border-l-2 border-sky-500 dark:border-sky-400 pl-6 font-lora flex-grow">
+  <figure className="bg-white p-8 rounded-xl border border-slate-200/80 flex flex-col h-full">
+    <blockquote className="text-lg text-slate-600 italic border-l-2 border-sky-500 pl-6 font-lora flex-grow">
       "{testimonial.quote}"
     </blockquote>
-    <figcaption className="mt-6 text-right font-bold text-slate-700 dark:text-slate-200">
+    <figcaption className="mt-6 text-right font-bold text-slate-700">
       {testimonial.author}
     </figcaption>
   </figure>
@@ -30,11 +30,11 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
 
 const Testimonials: React.FC = () => {
   return (
-    <section id="testimonials" className="py-20 md:py-32 bg-white dark:bg-slate-900">
+    <section id="testimonials" className="py-20 md:py-32 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="text-sky-600 dark:text-sky-400 font-semibold tracking-wider uppercase">Words of Hope</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 dark:text-white mt-2">
+          <span className="text-sky-600 font-semibold tracking-wider uppercase">Words of Hope</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 mt-2">
             Stories from Our Community
           </h2>
         </div>

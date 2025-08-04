@@ -1,0 +1,7 @@
+# Placeholder for hero images
+# Add your hero section background images here
+# Recommended formats: .jpg, .webp, .png
+# Recommended sizes: 1920x1080 or larger for full-screen backgrounds
+
+# Example usage in components:
+# <img src="/images/hero/background-1.jpg" alt="Hero background" />

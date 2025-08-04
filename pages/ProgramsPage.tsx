@@ -28,14 +28,14 @@ interface ProgramsPageProps {
 
 const ProgramsPage: React.FC<ProgramsPageProps> = ({ onOpenModal }) => {
   return (
-    <section id="programs-page" className="bg-white dark:bg-slate-900 py-24 md:py-32 pt-40">
+    <section id="programs-page" className="bg-white py-24 md:py-32 pt-40">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto">
-          <span className="text-sky-600 dark:text-sky-400 font-semibold tracking-wider uppercase">Our Programs</span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800 dark:text-white mt-2 mb-6">
+          <span className="text-sky-600 font-semibold tracking-wider uppercase">Our Programs</span>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800 mt-2 mb-6">
             Tailored Pathways to Recovery
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 mb-12">
+          <p className="text-lg text-slate-600 mb-12">
             We offer a range of programs designed to meet you where you are. Each path is built on a foundation of evidence-based care, compassionate support, and a commitment to your long-term well-being.
           </p>
         </div>
@@ -43,10 +43,9 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ onOpenModal }) => {
           {programsData.map((program, index) => (
             <ProgramCard key={index} program={program} onOpenModal={onOpenModal} />
           ))}
-        </div>
-        <div className="text-center bg-slate-100 dark:bg-slate-800/50 p-10 rounded-2xl shadow-xl max-w-4xl mx-auto ring-1 ring-slate-200 dark:ring-slate-800">
-            <h2 className="text-3xl font-bold text-slate-800 dark:text-white mb-4">Ready to Take the Next Step?</h2>
-            <p className="text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
+        </div>          <div className="text-center bg-slate-100 p-10 rounded-2xl shadow-xl max-w-4xl mx-auto ring-1 ring-slate-200">
+              <h2 className="text-3xl font-bold text-slate-800 mb-4">Ready to Take the Next Step?</h2>
+            <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
                 Verifying your insurance is a simple, confidential first step towards getting the help you deserve. Our team is ready to assist you.
             </p>
             <button

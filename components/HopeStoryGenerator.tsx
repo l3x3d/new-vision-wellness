@@ -24,19 +24,19 @@ const HopeStoryGenerator: React.FC = () => {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-slate-50 dark:bg-slate-950">
+    <section className="py-20 md:py-32 bg-slate-50">
       <div className="container mx-auto px-6 flex justify-center">
-        <div className="w-full max-w-3xl bg-white dark:bg-slate-900 rounded-2xl shadow-xl dark:shadow-2xl dark:shadow-sky-900/20 p-8 md:p-12 text-center border border-slate-200/80 dark:border-slate-800">
-          <SparklesIcon className="mx-auto h-12 w-12 text-sky-500 dark:text-sky-400 mb-4" />
-          <h2 className="text-3xl font-extrabold text-slate-800 dark:text-white mb-3">Find a Moment of Inspiration</h2>
-          <p className="text-slate-600 dark:text-slate-300 mb-8 max-w-xl mx-auto">
+        <div className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center border border-slate-200">
+          <SparklesIcon className="mx-auto h-12 w-12 text-sky-500 mb-4" />
+          <h2 className="text-3xl font-extrabold text-slate-800 mb-3">Find a Moment of Inspiration</h2>
+          <p className="text-slate-600 mb-8 max-w-xl mx-auto">
             Sometimes, a story of hope is all we need to see the path forward. Click the button to read a fictional story of recovery and resilience.
           </p>
           
           <button
             onClick={handleGenerateStory}
             disabled={isLoading}
-            className="bg-sky-600 text-white font-bold px-8 py-3 rounded-full text-lg hover:bg-sky-700 dark:hover:bg-sky-500 transition-all transform hover:scale-105 shadow-lg disabled:bg-slate-400 dark:disabled:bg-slate-600 disabled:cursor-not-allowed flex items-center justify-center mx-auto"
+            className="bg-sky-600 text-white font-bold px-8 py-3 rounded-full text-lg hover:bg-sky-700 transition-all transform hover:scale-105 shadow-lg disabled:bg-slate-400 disabled:cursor-not-allowed flex items-center justify-center mx-auto"
           >
             {isLoading ? (
               <>
@@ -52,13 +52,13 @@ const HopeStoryGenerator: React.FC = () => {
           </button>
 
           {story && !isLoading && (
-            <div className="mt-10 text-left p-6 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg animate-fade-in">
-              <p className="text-slate-700 dark:text-slate-200 whitespace-pre-wrap font-lora leading-relaxed">{story}</p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-4 italic">Note: This story is fictional and generated for inspiration purposes only.</p>
+            <div className="mt-10 text-left p-6 bg-slate-50 border border-slate-200 rounded-lg animate-fade-in">
+              <p className="text-slate-700 whitespace-pre-wrap font-lora leading-relaxed">{story}</p>
+              <p className="text-xs text-slate-500 mt-4 italic">Note: This story is fictional and generated for inspiration purposes only.</p>
             </div>
           )}
           {error && !isLoading && (
-             <div className="mt-10 text-left p-6 bg-red-100 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-400 rounded-lg text-red-700 dark:text-red-300">
+             <div className="mt-10 text-left p-6 bg-red-100 border-l-4 border-red-500 rounded-lg text-red-700">
               <p>{error}</p>
             </div>
           )}

@@ -62,42 +62,42 @@ const StaffDashboardPage: React.FC = () => {
 
     const getStatusColor = (status: string) => {
         switch (status) {
-            case 'Verified': return 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300';
-            case 'Review Needed': return 'bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300';
-            case 'Plan Not Found': return 'bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300';
-            default: return 'bg-slate-100 text-slate-800 dark:bg-slate-700 dark:text-slate-300';
+            case 'Verified': return 'bg-green-100 text-green-800';
+            case 'Review Needed': return 'bg-amber-100 text-amber-800';
+            case 'Plan Not Found': return 'bg-red-100 text-red-800';
+            default: return 'bg-slate-100 text-slate-800';
         }
     }
 
     return (
-        <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pt-32 pb-20">
+        <div className="bg-white min-h-screen pt-32 pb-20">
             <div className="container mx-auto px-6">
                 <header className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-8">
                     <div>
-                        <h1 className="text-3xl font-extrabold text-slate-800 dark:text-white">Staff Dashboard</h1>
-                        <p className="text-slate-600 dark:text-slate-400 mt-1">Review of AI Insurance Verifications</p>
+                        <h1 className="text-3xl font-extrabold text-slate-800">Staff Dashboard</h1>
+                        <p className="text-slate-600 mt-1">Review of AI Insurance Verifications</p>
                     </div>
                     <div className="flex items-center gap-4">
                         <button 
                             onClick={handleClearSubmissions}
-                            className="text-sm text-red-600 dark:text-red-500 hover:underline"
+                            className="text-sm text-red-600 hover:underline"
                         >
                             Clear All Records
                         </button>
                         <button 
                             onClick={handleLogout}
-                            className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold px-4 py-2 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+                            className="bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-lg hover:bg-slate-300 transition-colors"
                         >
                             Logout
                         </button>
                     </div>
                 </header>
 
-                <div className="bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200/80 dark:border-slate-800/80 overflow-hidden">
+                <div className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
                     <div className="overflow-x-auto">
                         {submissions.length > 0 ? (
-                            <table className="w-full text-sm text-left text-slate-600 dark:text-slate-300">
-                                <thead className="text-xs text-slate-700 dark:text-slate-400 uppercase bg-slate-50 dark:bg-slate-800">
+                            <table className="w-full text-sm text-left text-slate-600">
+                                <thead className="text-xs text-slate-700 uppercase bg-slate-50">
                                     <tr>
                                         <th scope="col" className="px-6 py-3">Submitted</th>
                                         <th scope="col" className="px-6 py-3">Patient Name</th>
@@ -109,9 +109,9 @@ const StaffDashboardPage: React.FC = () => {
                                 </thead>
                                 <tbody>
                                     {submissions.map((sub) => (
-                                        <tr key={sub.submissionId} className="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+                                        <tr key={sub.submissionId} className="bg-white border-b border-slate-200 hover:bg-slate-50">
                                             <td className="px-6 py-4">{new Date(sub.submittedAt).toLocaleString()}</td>
-                                            <td className="px-6 py-4 font-semibold text-slate-800 dark:text-white">{sub.patientData.name}</td>
+                                            <td className="px-6 py-4 font-semibold text-slate-800">{sub.patientData.name}</td>
                                             <td className="px-6 py-4">{sub.patientData.dob}</td>
                                             <td className="px-6 py-4">
                                                 <div>{sub.patientData.provider}</div>
@@ -124,8 +124,8 @@ const StaffDashboardPage: React.FC = () => {
                                             </td>
                                             <td className="px-6 py-4 max-w-sm">
                                                 <details>
-                                                    <summary className="cursor-pointer font-medium text-sky-600 dark:text-sky-400">View</summary>
-                                                    <div className="mt-2 p-3 bg-slate-100 dark:bg-slate-800 rounded-md space-y-2 text-xs">
+                                                    <summary className="cursor-pointer font-medium text-sky-600">View</summary>
+                                                    <div className="mt-2 p-3 bg-slate-100 rounded-md space-y-2 text-xs">
                                                         <p><strong>Plan:</strong> {sub.verificationResult.planName}</p>
                                                         <p><strong>Summary:</strong> {sub.verificationResult.coverageSummary}</p>
                                                         <p><strong>Next Steps:</strong> {sub.verificationResult.nextSteps}</p>
@@ -138,15 +138,15 @@ const StaffDashboardPage: React.FC = () => {
                             </table>
                         ) : (
                             <div className="text-center p-12">
-                                <h3 className="text-xl font-semibold text-slate-700 dark:text-white">No Submissions Yet</h3>
+                                <h3 className="text-xl font-semibold text-slate-700">No Submissions Yet</h3>
                                 <p className="mt-2 text-slate-500">When users complete an insurance verification, their submissions will appear here.</p>
                             </div>
                         )}
                     </div>
                 </div>
 
-                <div className="mt-8 p-4 text-sm bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 rounded-lg border border-amber-200 dark:border-amber-500/30">
-                    <p><strong>Disclaimer:</strong> This is a demonstration interface. In a real-world, HIPAA-compliant application, all Protected Health Information (PHI) would be managed through a secure backend server with encrypted databases and strict access controls, not browser localStorage.</p>
+                <div className="mt-8 p-4 text-sm bg-amber-100 text-amber-800 rounded-lg border border-amber-200">
+                    <p><strong>Plans for this portal:</strong> HIPAA-compliant application, all Protected Health Information (PHI) would be managed through a secure backend server with encrypted databases and strict access controls, not browser localStorage.</p>
                 </div>
             </div>
         </div>

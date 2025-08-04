@@ -1,0 +1,6 @@
+# Placeholder for static icons
+# Add favicons, app icons, and other static icon files here
+# Common files: favicon.ico, apple-touch-icon.png, android-chrome-*.png
+
+# Example usage in HTML:
+# <link rel="icon" href="/images/icons/favicon.ico" />

@@ -1,0 +1,7 @@
+# Placeholder for logo images
+# Add company logos, partner logos, and brand assets here
+# Recommended formats: .svg, .png (with transparency)
+# Include both light and dark theme versions when needed
+
+# Example usage in components:
+# <img src="/images/logos/company-logo.svg" alt="Company logo" />

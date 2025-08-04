@@ -6,15 +6,21 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "setup-db": "node setup-dynamodb-tables.js",
+    "test-db": "node -e \"import('./services/awsDatabase.js').then(db => console.log('Database service loaded successfully'))\""
   },
   "dependencies": {
-    "react-dom": "^19.1.0",
+    "@aws-sdk/client-dynamodb": "^3.859.0",
+    "@aws-sdk/lib-dynamodb": "^3.859.0",
+    "@google/genai": "^1.10.0",
     "react": "^19.1.0",
-    "@google/genai": "^1.10.0"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
   }

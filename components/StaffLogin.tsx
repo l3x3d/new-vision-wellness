@@ -38,16 +38,16 @@ const StaffLogin: React.FC<StaffLoginProps> = ({ onLoginSuccess }) => {
     };
 
     return (
-        <div className="bg-slate-50 dark:bg-slate-950 flex items-center justify-center min-h-screen py-12 px-4">
+        <div className="bg-slate-50 flex items-center justify-center min-h-screen py-12 px-4">
             <div className="w-full max-w-md">
                 <div className="text-center mb-8">
-                    <h1 className="text-3xl font-extrabold text-slate-800 dark:text-white">Staff Portal Login</h1>
-                    <p className="text-slate-600 dark:text-slate-400 mt-2">Access to this area is restricted to authorized personnel.</p>
+                    <h1 className="text-3xl font-extrabold text-slate-800">Portal Login</h1>
+                    <p className="text-slate-600 mt-2">Access to this area is restricted to authorized personnel.</p>
                 </div>
-                <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200/80 dark:border-slate-800/80 p-8">
+                <div className="bg-white rounded-2xl shadow-xl border border-slate-200/80 p-8">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
-                            <label htmlFor="password" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                            <label htmlFor="password" className="block text-sm font-medium text-slate-700">
                                 Password
                             </label>
                             <div className="mt-1">
@@ -60,13 +60,13 @@ const StaffLogin: React.FC<StaffLoginProps> = ({ onLoginSuccess }) => {
                                     required
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full px-4 py-2 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+                                    className="w-full px-4 py-2 bg-slate-100 border border-slate-300 text-slate-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                                 />
                             </div>
                         </div>
 
                         {error && (
-                            <div className="text-sm text-red-600 dark:text-red-400">
+                            <div className="text-sm text-red-600">
                                 {error}
                             </div>
                         )}
@@ -75,7 +75,7 @@ const StaffLogin: React.FC<StaffLoginProps> = ({ onLoginSuccess }) => {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 disabled:bg-slate-400 dark:disabled:bg-slate-600 dark:focus:ring-offset-slate-900 transition-colors"
+                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 disabled:bg-slate-400 transition-colors"
                             >
                                 {isLoading ? 'Signing In...' : 'Sign In'}
                             </button>
@@ -83,7 +83,7 @@ const StaffLogin: React.FC<StaffLoginProps> = ({ onLoginSuccess }) => {
                     </form>
                 </div>
                  <p className="mt-6 text-center text-xs text-slate-500">
-                    For demonstration: password is <code className="font-mono bg-slate-200 dark:bg-slate-700 rounded p-1">Vision2024!</code>
+                    For demonstration: password is <code className="font-mono bg-slate-200 rounded p-1">Vision2024!</code>
                 </p>
             </div>
         </div>

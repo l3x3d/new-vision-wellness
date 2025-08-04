@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth ocean">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -8,13 +8,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Preload hero images -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop">
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2232&auto=format&fit=crop">
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop">
+    <link rel="preload" as="image" href="/images/hero/hero-1.png">
+    <link rel="preload" as="image" href="/images/hero/hero-2.png">
+    <link rel="preload" as="image" href="/images/hero/hero-3.png">
+    <link rel="preload" as="image" href="/images/hero/hero-4.png">
+    <link rel="preload" as="image" href="/images/hero/hero-5.png">
 
     <style>
       /* Custom font for a more modern feel */
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+      /* Google Material Icons */
+      @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+      @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+      @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
       body {
         font-family: 'Inter', sans-serif;
       }
@@ -35,17 +41,10 @@
   }
 }
 </script>
-<script>
-    // Prevent FOUC (Flash of Unstyled Content) for dark mode
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
-    }
-</script>
+
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-300 transition-colors duration-300">
+  <body class="bg-white text-slate-700 transition-colors duration-300">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

@@ -7,16 +7,20 @@ interface HeroProps {
 
 const heroImages = [
   {
-    src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop',
-    alt: 'A diverse group of individuals laughing and connecting around a table, symbolizing community support.'
+    src: '/images/hero/hero-1.png',
+    alt: 'NewVision Wellness treatment facility - welcoming environment for recovery and healing.'
   },
   {
-    src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2232&auto=format&fit=crop',
-    alt: 'A compassionate professional guiding two individuals through paperwork, representing expert and caring guidance.'
+    src: '/images/hero/hero-2.png',
+    alt: 'Professional therapy session - compassionate care and expert guidance for addiction recovery.'
   },
   {
-    src: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop',
-    alt: 'People participating in a group workshop, showing a focus on learning skills for recovery.'
+    src: '/images/hero/hero-3.png',
+    alt: 'Group therapy and community support - building connections on the path to wellness.'
+  },
+  {
+    src: '/images/hero/hero-5.png',
+    alt: 'Individual counseling space - private, safe environment for personal growth and recovery.'
   }
 ];
 
