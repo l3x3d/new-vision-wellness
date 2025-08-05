@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Testimonials from '../components/Testimonials';
+import PageHeader from '../components/PageHeader';
 
 interface TestimonialsPageProps {
   onOpenModal: () => void;

@@ -12,6 +12,48 @@
   --ocean-border: #f1f5f9;         /* Ultra light border */
 }
 
+/* Dark Ocean Theme */
+.ocean.dark {
+  /* Dark mode variables */
+  --ocean-bg-primary: #0f172a;     /* Dark slate background */
+  --ocean-bg-secondary: #1e293b;   /* Darker slate background */
+  --ocean-bg-accent: #3b82f6;      /* Blue accent */
+  --ocean-text-primary: #f1f5f9;   /* Light text */
+  --ocean-text-secondary: #cbd5e1; /* Light gray text */
+  --ocean-text-accent: #ffffff;    /* White text */
+  --ocean-accent-primary: #10b981; /* Green accent */
+  --ocean-accent-secondary: #059669; /* Darker green */
+  --ocean-border: #334155;         /* Dark border */
+}
+
+/* Dark mode overrides */
+.ocean.dark .bg-slate-800 { background-color: #1e293b !important; }
+.ocean.dark .bg-slate-950 { background-color: #020617 !important; }
+.ocean.dark .bg-slate-900 { background-color: #0f172a !important; }
+.ocean.dark .bg-white { background-color: #1e293b !important; }
+.ocean.dark .bg-slate-50 { background-color: #334155 !important; }
+.ocean.dark .bg-slate-100 { background-color: #475569 !important; }
+
+.ocean.dark .text-white { color: #f1f5f9 !important; }
+.ocean.dark .text-slate-600 { color: #cbd5e1 !important; }
+.ocean.dark .text-slate-700 { color: #e2e8f0 !important; }
+.ocean.dark .text-slate-800 { color: #f1f5f9 !important; }
+.ocean.dark .text-slate-400 { color: #94a3b8 !important; }
+.ocean.dark .text-slate-500 { color: #64748b !important; }
+.ocean.dark .text-slate-300 { color: #cbd5e1 !important; }
+
+.ocean.dark .border-slate-700 { border-color: #334155 !important; }
+.ocean.dark .border-slate-800 { border-color: #1e293b !important; }
+.ocean.dark .border-slate-200 { border-color: #334155 !important; }
+
+.ocean.dark .bg-gradient-to-r { 
+  background: linear-gradient(to right, #3b82f6, #10b981) !important;
+}
+
+.ocean.dark .bg-gradient-to-br { 
+  background: linear-gradient(to bottom right, #3b82f6, #059669) !important;
+}
+
 /* Ultra-light ocean theme overrides */
 .ocean .bg-slate-800 { background-color: #ffffff !important; } /* Pure white instead of dark */
 .ocean .bg-slate-950 { background-color: #f8fafc !important; } /* Ultra light gray */

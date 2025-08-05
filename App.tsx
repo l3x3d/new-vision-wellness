@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { ThemeProvider } from './components/ThemeContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import WhatWeTreat from './components/WhatWeTreat';
@@ -10,7 +11,8 @@ import Testimonials from './components/Testimonials';
 import InsuranceBanner from './components/InsuranceBanner';
 import HopeStoryGenerator from './components/HopeStoryGenerator';
 import Footer from './components/Footer';
-import InsuranceBotModal from './components/InsuranceBotModal';
+// import InsuranceBotModal from './components/InsuranceBotModal';
+import SimpleInsuranceBotModal from './components/SimpleInsuranceBotModal';
 // import SecureInsuranceBotModal from './components/SecureInsuranceBotModal';
 import FloatingBotButton from './components/FloatingBotButton';
 import ProgramsPage from './pages/ProgramsPage';
@@ -109,15 +111,15 @@ const App: React.FC = () => {
 
 
   return (
-    <>
+    <ThemeProvider>
       <Header onOpenModal={() => setIsBotOpen(true)} />
       <main>
         {renderPage()}
       </main>
       <Footer />
       <FloatingBotButton onOpen={() => setIsBotOpen(true)} />
-      <InsuranceBotModal isOpen={isBotOpen} onClose={() => setIsBotOpen(false)} />
-    </>
+      <SimpleInsuranceBotModal isOpen={isBotOpen} onClose={() => setIsBotOpen(false)} />
+    </ThemeProvider>
   );
 };
 

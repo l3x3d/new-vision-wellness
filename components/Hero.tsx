@@ -19,8 +19,8 @@ const heroImages = [
     alt: 'Group therapy and community support - building connections on the path to wellness.'
   },
   {
-    src: '/images/hero/hero-5.png',
-    alt: 'Individual counseling space - private, safe environment for personal growth and recovery.'
+    src: '/images/Generated Image August 04, 2025 - 7_19PM.jpeg',
+    alt: 'Latest therapeutic environment - modern wellness space designed for comprehensive addiction recovery.'
   }
 ];
 

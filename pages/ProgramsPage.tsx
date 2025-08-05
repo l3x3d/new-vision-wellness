@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ProgramCard from '../components/ProgramCard';
+import PageHeader from '../components/PageHeader';
 import type { Program } from '../types';
 import { UsersIcon, HeartIcon, AcademicCapIcon } from '../components/IconComponents';
 
@@ -28,18 +29,19 @@ interface ProgramsPageProps {
 
 const ProgramsPage: React.FC<ProgramsPageProps> = ({ onOpenModal }) => {
   return (
-    <section id="programs-page" className="bg-white py-24 md:py-32 pt-40">
-      <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto">
-          <span className="text-sky-600 font-semibold tracking-wider uppercase">Our Programs</span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800 mt-2 mb-6">
-            Tailored Pathways to Recovery
-          </h1>
-          <p className="text-lg text-slate-600 mb-12">
-            We offer a range of programs designed to meet you where you are. Each path is built on a foundation of evidence-based care, compassionate support, and a commitment to your long-term well-being.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+    <div className="bg-white">
+      <PageHeader
+        title="Tailored Pathways to Recovery"
+        subtitle="We offer a range of programs designed to meet you where you are. Each path is built on a foundation of evidence-based care, compassionate support, and a commitment to your long-term well-being."
+        backgroundImage="/images/hero/hero-2.png"
+      />
+      
+      <section id="programs-page" className="bg-white py-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-sky-600 font-semibold tracking-wider uppercase">Our Programs</span>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {programsData.map((program, index) => (
             <ProgramCard key={index} program={program} onOpenModal={onOpenModal} />
           ))}
@@ -57,6 +59,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ onOpenModal }) => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PageHeader from '../components/PageHeader';
 import { PhoneIcon, EnvelopeIconStandard as EnvelopeIcon, MapPinIcon, ClockIcon } from '../components/IconComponents';
 
 interface ContactPageProps {
@@ -8,17 +9,15 @@ interface ContactPageProps {
 
 const ContactPage: React.FC<ContactPageProps> = ({ onOpenModal }) => {
   return (
-    <section id="contact-page" className="bg-white py-24 md:py-32 pt-40">
+    <div className="bg-white">
+      <PageHeader
+        title="Get in Touch"
+        subtitle="We're here to help. Whether you have questions, need support, or are ready to begin your journey, our team is available to speak with you. Your call is confidential and free of charge."
+        backgroundImage="/images/hero/hero-1.png"
+      />
+      
+      <section id="contact-page" className="bg-white py-20">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800 mt-2 mb-6">
-            Get in Touch
-          </h1>
-          <p className="text-lg text-slate-600 mb-16">
-            We're here to help. Whether you have questions, need support, or are ready to begin your journey, our team is available to speak with you. Your call is confidential and free of charge.
-          </p>
-        </div>
-
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Contact Info */}
           <div className="bg-slate-50 p-8 rounded-2xl">
@@ -86,6 +85,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onOpenModal }) => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 
