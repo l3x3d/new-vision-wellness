@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Ocean Theme - Ultra Light, Bright, and Airy colorway */
 .ocean {
   /* Custom CSS variables for ultra-light ocean theme */

@@ -1,0 +1,8 @@
+/* Import the actual theme CSS */
+@import url('/src/ocean-theme.css');
+
+/* Additional global styles if needed */
+body {
+  margin: 0;
+  padding: 0;
+}

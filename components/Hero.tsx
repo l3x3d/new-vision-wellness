@@ -19,6 +19,10 @@ const heroImages = [
     alt: 'Group therapy and community support - building connections on the path to wellness.'
   },
   {
+    src: '/images/hero/hero-4.png',
+    alt: 'Comprehensive care environment - state-of-the-art facility for holistic addiction treatment.'
+  },
+  {
     src: '/images/Generated Image August 04, 2025 - 7_19PM.jpeg',
     alt: 'Latest therapeutic environment - modern wellness space designed for comprehensive addiction recovery.'
   }
@@ -84,15 +88,23 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             key={image.src}
             className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
           >
-            {isLoaded ? (
-              <img 
-                src={image.src} 
-                alt={image.alt} 
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full bg-slate-800"></div>
-            )}
+            <img 
+              src={image.src} 
+              alt={image.alt} 
+              className="w-full h-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+              onError={(e) => {
+                console.log(`Failed to load image: ${image.src}`);
+                // Fallback to a gradient background
+                (e.target as HTMLImageElement).style.display = 'none';
+                const fallback = (e.target as HTMLImageElement).nextElementSibling as HTMLElement;
+                if (fallback) fallback.style.display = 'block';
+              }}
+            />
+            <div 
+              className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800"
+              style={{ display: 'none' }}
+            ></div>
           </div>
         ))}
       </div>

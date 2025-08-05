@@ -1,16 +1,21 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
 
-// Assume process.env.API_KEY is configured in the environment.
-const apiKey = process.env.API_KEY;
+// Support both environment variable formats for compatibility
+const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
 if (!apiKey) {
-  throw new Error("API_KEY environment variable not set.");
+  console.warn("No API key found. Set GEMINI_API_KEY, VITE_GEMINI_API_KEY, or API_KEY environment variable.");
+  // Don't throw error to prevent build failure - handle gracefully
 }
 
-const ai = new GoogleGenAI({ apiKey });
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 export const generateHopeStory = async (): Promise<string> => {
   try {
+    if (!ai) {
+      return "Stories of hope are all around us. Every person in recovery has overcome challenges and found strength they didn't know they had. Your journey towards healing is already a story of courage.";
+    }
+    
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
       contents: "Tell me a short, fictional, and anonymous story of hope and recovery from addiction. The tone should be uplifting and encouraging. Do not use real names or specific details. The story should be about 2-3 paragraphs long.",
@@ -20,7 +25,7 @@ export const generateHopeStory = async (): Promise<string> => {
         topK: 40,
       }
     });
-    return response.text;
+    return response.text || "We couldn't generate a story at this moment. Please try again later. Remember, your own story of recovery is waiting to be written.";
   } catch (error) {
     console.error("Error generating story from Gemini API:", error);
     return "We couldn't generate a story at this moment. Please try again later. Remember, your own story of recovery is waiting to be written.";
@@ -78,6 +83,15 @@ export const verifyInsurance = async (data: InsuranceVerificationData): Promise<
     `;
 
     try {
+        if (!ai) {
+            return {
+                status: 'Review Needed',
+                planName: 'Manual Review Required',
+                coverageSummary: 'Our admissions team will manually verify your insurance benefits and contact you within 24 hours with detailed coverage information.',
+                nextSteps: 'Please expect a call from our admissions team within 24 hours. They will verify your benefits and help you understand your coverage options.'
+            };
+        }
+        
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
             contents: prompt,
@@ -100,7 +114,7 @@ Knowledge Base & Rules:
             },
         });
         
-        const jsonText = response.text.trim();
+        const jsonText = response.text?.trim() || '{}';
         const result = JSON.parse(jsonText) as InsuranceVerificationResult;
         
         if (!result.status || !result.coverageSummary) {
