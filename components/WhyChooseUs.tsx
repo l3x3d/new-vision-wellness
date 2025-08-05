@@ -22,21 +22,21 @@ const WhyChooseUs: React.FC = () => {
             </p>
             <ul className="space-y-5">
               <li className="flex items-start">
-                <Checkmark className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                <Checkmark className="h-4 w-4 text-green-500 mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold text-slate-800">Expert & Compassionate Staff</h4>
                   <p className="text-slate-600">Our team consists of licensed therapists and medical professionals who specialize in addiction and mental health treatment.</p>
                 </div>
               </li>
               <li className="flex items-start">
-                <Checkmark className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                <Checkmark className="h-4 w-4 text-green-500 mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold text-slate-800">Personalized Treatment Plans</h4>
                   <p className="text-slate-600">We don't believe in a one-size-fits-all approach. Your care plan is tailored to your specific needs, history, and goals.</p>
                 </div>
               </li>
                <li className="flex items-start">
-                <Checkmark className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                <Checkmark className="h-4 w-4 text-green-500 mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold text-slate-800">A Supportive Community</h4>
                   <p className="text-slate-600">Heal alongside peers who understand your journey in a safe, non-judgmental, and encouraging environment.</p>

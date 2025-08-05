@@ -38,7 +38,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({ program, onOpenModal }) => {
         <h3 className="text-2xl font-bold text-slate-800 mb-2">{program.title}</h3>
         {program.duration && (
           <div className="flex items-center text-slate-500 text-sm">
-            <ClockIcon className="h-4 w-4 mr-2" />
+            <ClockIcon className="h-4 w-4 mr-2 flex-shrink-0" />
             <span>{program.duration}</span>
           </div>
         )}
@@ -56,7 +56,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({ program, onOpenModal }) => {
           <ul className="space-y-2">
             {program.features.slice(0, 3).map((feature, index) => (
               <li key={index} className="flex items-start text-sm text-slate-600">
-                <CheckIcon className="h-4 w-4 text-sky-500 mr-2 mt-0.5 flex-shrink-0" />
+                <CheckIcon className="h-4 w-4 text-sky-500 mr-2 mt-1 flex-shrink-0" />
                 <span>{feature}</span>
               </li>
             ))}

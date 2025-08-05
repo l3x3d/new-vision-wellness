@@ -4,22 +4,22 @@ import { AlcoholIcon, DrugIcon, DualDiagnosisIcon, MentalHealthIcon } from './Ic
 
 const treatments = [
   {
-    icon: <AlcoholIcon className="h-12 w-12 text-sky-600" />,
+    icon: <AlcoholIcon className="h-8 w-8 text-sky-600" />,
     title: 'Alcohol Addiction',
     description: 'Specialized programs to help you overcome alcohol dependency in a supportive setting.',
   },
   {
-    icon: <DrugIcon className="h-12 w-12 text-sky-600" />,
+    icon: <DrugIcon className="h-8 w-8 text-sky-600" />,
     title: 'Drug & Substance Abuse',
     description: 'Comprehensive care for various substance use disorders, focusing on long-term recovery.',
   },
   {
-    icon: <DualDiagnosisIcon className="h-12 w-12 text-sky-600" />,
+    icon: <DualDiagnosisIcon className="h-8 w-8 text-sky-600" />,
     title: 'Dual Diagnosis',
     description: 'Integrated treatment for co-occurring addiction and mental health conditions like depression or anxiety.',
   },
   {
-    icon: <MentalHealthIcon className="h-12 w-12 text-sky-600" />,
+    icon: <MentalHealthIcon className="h-8 w-8 text-sky-600" />,
     title: 'Mental Health Support',
     description: 'Targeted support for mental health challenges, providing coping strategies and therapeutic care.',
   },

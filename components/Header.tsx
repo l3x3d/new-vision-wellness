@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <a href="#" className="flex items-center space-x-2 transition-opacity hover:opacity-80" onClick={() => isMenuOpen && setIsMenuOpen(false)}>
-              <SparklesIcon className="h-8 w-8 text-sky-500" />
+              <SparklesIcon className="h-6 w-6 text-sky-500" />
               <span className="text-2xl font-extrabold text-slate-800 tracking-tight">
                 NewVision<span className="font-semibold text-sky-500">Wellness</span>
               </span>
@@ -73,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
                 aria-label="Toggle menu"
                 aria-expanded={isMenuOpen}
               >
-                {isMenuOpen ? <XIcon className="h-7 w-7" /> : <MenuIcon className="h-7 w-7" />}
+                {isMenuOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
               </button>
             </div>
           </div>

@@ -11,15 +11,18 @@ interface IconProps {
 // Base Material Icon component
 const MaterialIcon: React.FC<IconProps & { iconName: string }> = ({ 
   className = "", 
-  size = 'large',
+  size = 'medium',
   variant = 'outlined',
   animate = false,
   iconName
 }) => {
-  const sizeClass = typeof size === 'number' ? '' : 
+  // Check if className already contains size classes (h-*, w-*, text-*)
+  const hasExplicitSize = /(?:h-\d+|w-\d+|text-\d*xl|text-xs|text-sm|text-base|text-lg)/.test(className);
+  
+  const sizeClass = hasExplicitSize ? '' : (typeof size === 'number' ? '' : 
     size === 'small' ? 'text-2xl' :
-    size === 'medium' ? 'text-4xl' :
-    'text-5xl';
+    size === 'medium' ? 'text-3xl' :
+    'text-4xl');
   
   const variantClass = 
     variant === 'filled' ? 'material-icons' :

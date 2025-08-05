@@ -6,17 +6,17 @@ import { UsersIcon, HeartIcon, AcademicCapIcon } from '../components/IconCompone
 
 const programsData: Program[] = [
   {
-    icon: <UsersIcon className="h-8 w-8" />,
+    icon: <UsersIcon className="h-4 w-4" />,
     title: 'Intensive Outpatient (IOP)',
     description: 'Our core program offers structured group therapy, individual counseling, and skill-building workshops while allowing you to maintain your daily life.'
   },
   {
-    icon: <HeartIcon className="h-8 w-8" />,
+    icon: <HeartIcon className="h-4 w-4" />,
     title: 'Individual Therapy',
     description: 'One-on-one sessions with a dedicated therapist to explore underlying issues, set personal goals, and develop coping strategies.'
   },
   {
-    icon: <AcademicCapIcon className="h-8 w-8" />,
+    icon: <AcademicCapIcon className="h-4 w-4" />,
     title: 'Family & Couple Counseling',
     description: 'Healing the family system is crucial. We provide sessions to rebuild trust, improve communication, and foster a supportive home environment.'
   }

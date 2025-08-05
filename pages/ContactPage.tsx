@@ -25,14 +25,14 @@ const ContactPage: React.FC<ContactPageProps> = ({ onOpenModal }) => {
             <h2 className="text-2xl font-bold text-slate-800 mb-6">Contact Information</h2>
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
-                <MapPinIcon className="h-7 w-7 text-sky-500 mt-1 flex-shrink-0" />
+                <MapPinIcon className="h-5 w-5 text-sky-500 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-slate-700">Location</h3>
                   <p className="text-slate-600">5530 Corbin Ave, Ste 130<br/>Tarzana, CA 91356</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <PhoneIcon className="h-7 w-7 text-sky-500 mt-1 flex-shrink-0" />
+                <PhoneIcon className="h-5 w-5 text-sky-500 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-slate-700">24/7 Helpline</h3>
                   <a href="tel:8186008640" className="text-slate-600 hover:text-sky-600 transition-colors">(818) 600-8640</a>
@@ -40,14 +40,14 @@ const ContactPage: React.FC<ContactPageProps> = ({ onOpenModal }) => {
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <EnvelopeIcon className="h-7 w-7 text-sky-500 mt-1 flex-shrink-0" />
+                <EnvelopeIcon className="h-5 w-5 text-sky-500 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-slate-700">Email</h3>
                   <a href="mailto:admissions@newvisionwellness.com" className="text-slate-600 hover:text-sky-600 transition-colors break-all">admissions@newvisionwellness.com</a>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <ClockIcon className="h-7 w-7 text-sky-500 mt-1 flex-shrink-0" />
+                <ClockIcon className="h-5 w-5 text-sky-500 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-slate-700">Hours</h3>
                   <p className="text-slate-600">Monday - Friday: 9:00 AM - 5:00 PM</p>

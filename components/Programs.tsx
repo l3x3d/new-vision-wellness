@@ -23,7 +23,7 @@ import {
 const programsData: Program[] = [
   // Core Programs
   {
-    icon: <UsersIcon className="h-8 w-8" />,
+    icon: <UsersIcon className="h-4 w-4" />,
     title: 'Intensive Outpatient Program (IOP)',
     description: 'Our flagship comprehensive treatment program offering structured group therapy, individual counseling, and evidence-based interventions while maintaining your daily responsibilities.',
     duration: '12-16 weeks, 3-4 days/week',
@@ -41,7 +41,7 @@ const programsData: Program[] = [
     ]
   },
   {
-    icon: <HeartIcon className="h-8 w-8" />,
+    icon: <HeartIcon className="h-4 w-4" />,
     title: 'Individual Therapy',
     description: 'Personalized one-on-one sessions with licensed therapists specializing in addiction and mental health, tailored to your unique recovery journey and personal goals.',
     duration: 'Ongoing, weekly sessions',
@@ -57,7 +57,7 @@ const programsData: Program[] = [
     ]
   },
   {
-    icon: <UserGroupIcon className="h-8 w-8" />,
+    icon: <UserGroupIcon className="h-4 w-4" />,
     title: 'Family & Couples Therapy',
     description: 'Specialized counseling to heal relationships, rebuild trust, improve communication, and create a supportive family environment essential for lasting recovery.',
     duration: '8-12 sessions, bi-weekly',
@@ -73,7 +73,7 @@ const programsData: Program[] = [
     ]
   },
   {
-    icon: <HomeIcon className="h-8 w-8" />,
+    icon: <HomeIcon className="h-4 w-4" />,
     title: 'Partial Hospitalization Program (PHP)',
     description: 'Intensive daily treatment program providing comprehensive care for those needing more support than traditional outpatient services but not requiring residential care.',
     duration: '4-8 weeks, 5-6 hours daily',
@@ -91,7 +91,7 @@ const programsData: Program[] = [
 
   // Specialized Care
   {
-    icon: <AlcoholIcon className="h-8 w-8" />,
+    icon: <AlcoholIcon className="h-4 w-4" />,
     title: 'Alcohol Use Disorder Treatment',
     description: 'Comprehensive treatment specifically designed for alcohol addiction, incorporating medical detox support, specialized therapy, and long-term recovery planning.',
     duration: '12-24 weeks',
@@ -107,7 +107,7 @@ const programsData: Program[] = [
     ]
   },
   {
-    icon: <DrugIcon className="h-8 w-8" />,
+    icon: <DrugIcon className="h-4 w-4" />,
     title: 'Substance Use Disorder Treatment',
     description: 'Evidence-based treatment for various substance dependencies including opioids, stimulants, and other controlled substances with medication-assisted treatment options.',
     duration: '16-26 weeks',
@@ -123,7 +123,7 @@ const programsData: Program[] = [
     ]
   },
   {
-    icon: <DualDiagnosisIcon className="h-8 w-8" />,
+    icon: <DualDiagnosisIcon className="h-4 w-4" />,
     title: 'Dual Diagnosis Treatment',
     description: 'Integrated treatment for co-occurring mental health and substance use disorders, addressing both conditions simultaneously for optimal outcomes.',
     duration: '16-32 weeks',
@@ -139,7 +139,7 @@ const programsData: Program[] = [
     ]
   },
   {
-    icon: <MentalHealthIcon className="h-8 w-8" />,
+    icon: <MentalHealthIcon className="h-4 w-4" />,
     title: 'Mental Health Services',
     description: 'Comprehensive mental health treatment for anxiety, depression, PTSD, and other mental health conditions that may contribute to or result from substance use.',
     duration: 'Ongoing, as needed',
@@ -157,7 +157,7 @@ const programsData: Program[] = [
 
   // Therapeutic Modalities
   {
-    icon: <BrainIcon className="h-8 w-8" />,
+    icon: <BrainIcon className="h-4 w-4" />,
     title: 'Cognitive Behavioral Therapy (CBT)',
     description: 'Evidence-based therapy focusing on identifying and changing negative thought patterns and behaviors that contribute to addiction and mental health challenges.',
     duration: '12-20 sessions',
@@ -173,7 +173,7 @@ const programsData: Program[] = [
     ]
   },
   {
-    icon: <StarIcon className="h-8 w-8" />,
+    icon: <StarIcon className="h-4 w-4" />,
     title: 'Dialectical Behavior Therapy (DBT)',
     description: 'Specialized therapy teaching mindfulness, emotion regulation, distress tolerance, and interpersonal effectiveness skills for lasting emotional stability.',
     duration: '24 weeks (6-month program)',
@@ -189,7 +189,7 @@ const programsData: Program[] = [
     ]
   },
   {
-    icon: <LightBulbIcon className="h-8 w-8" />,
+    icon: <LightBulbIcon className="h-4 w-4" />,
     title: 'EMDR Therapy',
     description: 'Eye Movement Desensitization and Reprocessing therapy for trauma recovery, helping process traumatic experiences that may underlie addiction.',
     duration: '8-16 sessions',
@@ -205,7 +205,7 @@ const programsData: Program[] = [
     ]
   },
   {
-    icon: <PuzzlePieceIcon className="h-8 w-8" />,
+    icon: <PuzzlePieceIcon className="h-4 w-4" />,
     title: 'Holistic Therapy',
     description: 'Integrative approaches including yoga, meditation, art therapy, and wellness practices that support whole-person healing and recovery.',
     duration: 'Ongoing, flexible',
@@ -223,7 +223,7 @@ const programsData: Program[] = [
 
   // Support Services
   {
-    icon: <CalendarIcon className="h-8 w-8" />,
+    icon: <CalendarIcon className="h-4 w-4" />,
     title: 'Case Management',
     description: 'Comprehensive coordination of care including healthcare, housing, employment, legal, and social services to support your recovery journey.',
     duration: 'Throughout treatment',
@@ -239,7 +239,7 @@ const programsData: Program[] = [
     ]
   },
   {
-    icon: <LifebuoyIcon className="h-8 w-8" />,
+    icon: <LifebuoyIcon className="h-4 w-4" />,
     title: 'Peer Recovery Support',
     description: 'Support from trained peer recovery specialists who have lived experience with addiction and can provide guidance, hope, and practical assistance.',
     duration: 'Ongoing availability',
@@ -255,7 +255,7 @@ const programsData: Program[] = [
     ]
   },
   {
-    icon: <DocumentTextIcon className="h-8 w-8" />,
+    icon: <DocumentTextIcon className="h-4 w-4" />,
     title: 'Aftercare & Alumni Services',
     description: 'Continuing support after program completion including alumni groups, ongoing counseling, and access to resources for maintaining long-term recovery.',
     duration: 'Lifetime access',
