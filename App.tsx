@@ -11,6 +11,7 @@ import InsuranceBanner from './components/InsuranceBanner';
 import HopeStoryGenerator from './components/HopeStoryGenerator';
 import Footer from './components/Footer';
 import InsuranceBotModal from './components/InsuranceBotModal';
+// import SecureInsuranceBotModal from './components/SecureInsuranceBotModal';
 import FloatingBotButton from './components/FloatingBotButton';
 import ProgramsPage from './pages/ProgramsPage';
 import LearnMorePage from './pages/LearnMorePage';
