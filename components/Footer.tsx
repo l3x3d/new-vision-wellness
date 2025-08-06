@@ -5,8 +5,9 @@ import TrustedPartners from './TrustedPartners';
 
 const Footer: React.FC = () => {
   return (
-    <footer id="contact" className="bg-slate-50 text-slate-800">
-      <div className="container mx-auto px-6">
+    <footer id="contact" className="relative bg-slate-50 text-slate-800 overflow-hidden">
+      
+      <div className="relative z-10 container mx-auto px-6">
         
         <div className="border-t border-slate-200">
             <TrustedPartners />

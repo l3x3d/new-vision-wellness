@@ -2,18 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ocean Theme - Ultra Light, Bright, and Airy colorway */
+/* Ocean Theme - Clean and Professional */
 .ocean {
-  /* Custom CSS variables for ultra-light ocean theme */
+  /* Custom CSS variables for clean ocean theme */
   --ocean-bg-primary: #ffffff;     /* Pure white background */
-  --ocean-bg-secondary: #f8fafc;   /* Ultra light blue-gray */
-  --ocean-bg-accent: #60a5fa;      /* Lighter, brighter blue */
-  --ocean-text-primary: #334155;   /* Lighter slate text */
+  --ocean-bg-secondary: #f8fafc;   /* Very light blue-gray */
+  --ocean-bg-accent: #60a5fa;      /* Bright blue accent */
+  --ocean-text-primary: #475569;   /* Balanced slate text */
   --ocean-text-secondary: #64748b; /* Medium gray text */
   --ocean-text-accent: #ffffff;    /* White text on colored backgrounds */
   --ocean-accent-primary: #3b82f6;   /* Blue primary accent */
   --ocean-accent-secondary: #2563eb; /* Darker blue secondary */
-  --ocean-border: #f1f5f9;         /* Ultra light border */
+  --ocean-border: #e2e8f0;         /* Light border */
 }
 
 /* Dark Ocean Theme */
@@ -58,61 +58,61 @@
   background: linear-gradient(to bottom right, #3b82f6, #1d4ed8) !important;
 }
 
-/* Ultra-light ocean theme overrides */
-.ocean .bg-slate-800 { background-color: #ffffff !important; } /* Pure white instead of dark */
-.ocean .bg-slate-950 { background-color: #f8fafc !important; } /* Ultra light gray */
-.ocean .bg-slate-900 { background-color: #ffffff !important; } /* Pure white */
+/* Clean ocean theme overrides */
+.ocean .bg-slate-800 { background-color: #ffffff !important; }
+.ocean .bg-slate-950 { background-color: #f8fafc !important; }
+.ocean .bg-slate-900 { background-color: #ffffff !important; }
 .ocean .bg-white { background-color: #ffffff !important; }
-.ocean .bg-slate-50 { background-color: #ffffff !important; }
-.ocean .bg-slate-100 { background-color: #f8fafc !important; }
+.ocean .bg-slate-50 { background-color: #f8fafc !important; }
+.ocean .bg-slate-100 { background-color: #f1f5f9 !important; }
 
-.ocean .text-white { color: #374151 !important; } /* Lighter dark text for better readability */
-.ocean .text-slate-600 { color: #64748b !important; } /* Lighter gray text */
-.ocean .text-slate-700 { color: #475569 !important; } /* Lighter gray text */
-.ocean .text-slate-800 { color: #334155 !important; } /* Lighter dark text */
-.ocean .text-slate-400 { color: #94a3b8 !important; } /* Lighter gray text */
-.ocean .text-slate-500 { color: #64748b !important; } /* Medium gray text */
-.ocean .text-slate-300 { color: #cbd5e1 !important; } /* Very light gray text */
+.ocean .text-white { color: #475569 !important; } /* Balanced text for readability */
+.ocean .text-slate-600 { color: #64748b !important; }
+.ocean .text-slate-700 { color: #475569 !important; }
+.ocean .text-slate-800 { color: #334155 !important; }
+.ocean .text-slate-400 { color: #94a3b8 !important; }
+.ocean .text-slate-500 { color: #64748b !important; }
+.ocean .text-slate-300 { color: #cbd5e1 !important; }
 
-.ocean .text-sky-500 { color: #3b82f6 !important; } /* Blue accent */
-.ocean .text-sky-400 { color: #60a5fa !important; } /* Lighter blue */
-.ocean .text-sky-600 { color: #2563eb !important; } /* Darker blue */
+.ocean .text-sky-500 { color: #0ea5e9 !important; }
+.ocean .text-sky-400 { color: #38bdf8 !important; }
+.ocean .text-sky-600 { color: #0284c7 !important; }
 
-.ocean .border-slate-700 { border-color: #f1f5f9 !important; } /* Ultra light border */
-.ocean .border-slate-800 { border-color: #e2e8f0 !important; } /* Light border */
-.ocean .border-slate-200 { border-color: #f1f5f9 !important; } /* Ultra light border */
+.ocean .border-slate-700 { border-color: #e2e8f0 !important; }
+.ocean .border-slate-800 { border-color: #cbd5e1 !important; }
+.ocean .border-slate-200 { border-color: #e2e8f0 !important; }
 
-.ocean .hover\:text-sky-600:hover { color: #2563eb !important; }
-.ocean .hover\:text-sky-400:hover { color: #60a5fa !important; }
-.ocean .hover\:text-white:hover { color: #334155 !important; } /* Lighter dark text on hover */
+.ocean .hover\:text-sky-600:hover { color: #0284c7 !important; }
+.ocean .hover\:text-sky-400:hover { color: #0ea5e9 !important; }
+.ocean .hover\:text-white:hover { color: #334155 !important; }
 .ocean .hover\:text-slate-300:hover { color: #94a3b8 !important; }
 
-/* Gradients for ultra-light ocean theme */
+/* Clean gradients for ocean theme */
 .ocean .bg-gradient-to-r { 
-  background: linear-gradient(to right, #60a5fa, #3b82f6) !important; /* Light blue to blue */
+  background: linear-gradient(to right, #3b82f6, #0ea5e9) !important;
 }
 
 .ocean .bg-gradient-to-br { 
-  background: linear-gradient(to bottom right, #60a5fa, #2563eb) !important; /* Light blue to darker blue */
+  background: linear-gradient(to bottom right, #3b82f6, #0284c7) !important;
 }
 
 /* Buttons and interactive elements */
-.ocean .bg-sky-500 { background-color: #3b82f6 !important; }
-.ocean .bg-sky-600 { background-color: #2563eb !important; }
-.ocean .hover\:bg-sky-600:hover { background-color: #2563eb !important; }
-.ocean .hover\:bg-sky-700:hover { background-color: #1d4ed8 !important; }
+.ocean .bg-sky-500 { background-color: #0ea5e9 !important; }
+.ocean .bg-sky-600 { background-color: #0284c7 !important; }
+.ocean .hover\:bg-sky-600:hover { background-color: #0284c7 !important; }
+.ocean .hover\:bg-sky-700:hover { background-color: #0369a1 !important; }
 
 /* Cards and surfaces */
-.ocean .bg-white\/95 { background-color: rgba(255, 255, 255, 0.98) !important; }
-.ocean .bg-slate-900\/95 { background-color: rgba(248, 250, 252, 0.95) !important; } /* Ultra light instead of dark */
+.ocean .bg-white\/95 { background-color: rgba(255, 255, 255, 0.95) !important; }
+.ocean .bg-slate-900\/95 { background-color: rgba(248, 250, 252, 0.95) !important; }
 
-/* Ultra-light shadows for ocean theme */
+/* Clean shadows for ocean theme */
 .ocean .shadow-xl { 
-  box-shadow: 0 20px 25px -5px rgba(71, 85, 105, 0.08), 0 10px 10px -5px rgba(71, 85, 105, 0.03) !important; 
+  box-shadow: 0 20px 25px -5px rgba(71, 85, 105, 0.1), 0 10px 10px -5px rgba(71, 85, 105, 0.04) !important; 
 }
 
 .ocean .shadow-lg { 
-  box-shadow: 0 10px 15px -3px rgba(71, 85, 105, 0.08), 0 4px 6px -2px rgba(71, 85, 105, 0.04) !important; 
+  box-shadow: 0 10px 15px -3px rgba(71, 85, 105, 0.1), 0 4px 6px -2px rgba(71, 85, 105, 0.05) !important; 
 }
 
 /* Material Icons alignment improvements */
@@ -130,3 +130,108 @@
   vertical-align: -0.125em;
   margin-top: -0.125em;
 }
+
+/* Subtle improvements for readability */
+.ocean .text-sm { color: #64748b !important; }
+.ocean .text-lg { color: #475569 !important; }
+.ocean .text-xl { color: #334155 !important; }
+.ocean .text-2xl { color: #334155 !important; }
+.ocean .text-3xl { color: #334155 !important; }
+.ocean .text-4xl { color: #334155 !important; }
+
+/* Button text contrast */
+.ocean .bg-sky-500, .ocean .bg-sky-600 { 
+  color: #ffffff !important;
+}
+
+/* Link styling */
+.ocean a { color: #0ea5e9 !important; }
+.ocean a:hover { color: #0284c7 !important; }
+
+/* Form element styling */
+.ocean input, .ocean textarea, .ocean select {
+  color: #475569 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.ocean input:focus, .ocean textarea:focus, .ocean select:focus {
+  border-color: #0ea5e9 !important;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.1) !important;
+}
+
+/* Card and surface styling */
+.ocean .bg-white, .ocean .bg-slate-50 {
+  border: 1px solid #e2e8f0 !important;
+}
+
+/* Component-specific improvements */
+
+/* Header navigation links */
+.ocean .header-nav a, .ocean nav a {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+.ocean .header-nav a:hover, .ocean nav a:hover {
+  color: #0ea5e9 !important;
+}
+
+/* Modal and overlay styling */
+.ocean .modal-content {
+  background-color: #ffffff !important;
+  border: 2px solid #e2e8f0 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Program card improvements */
+.ocean .program-card h3 {
+  color: #334155 !important;
+  font-weight: 700 !important;
+}
+
+.ocean .program-card p {
+  color: #64748b !important;
+}
+
+/* Button focus states for accessibility */
+.ocean button:focus {
+  outline: 2px solid #0ea5e9 !important;
+  outline-offset: 2px !important;
+}
+
+/* Testimonial text styling */
+.ocean .testimonial-text {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+/* Feature list styling */
+.ocean .feature-list li {
+  color: #64748b !important;
+}
+
+/* CTA section styling */
+.ocean .cta-text {
+  color: #334155 !important;
+  font-weight: 600 !important;
+}
+
+/* Hero section text overrides */
+.ocean .hero-section h1,
+.ocean .hero-section p {
+  color: #000000 !important;
+}
+
+/* Keep CTA button text white */
+.ocean .hero-section button,
+.ocean .hero-section a {
+  color: #ffffff !important;
+}
+
+/* Ensure hero heading and paragraph stay black */
+.ocean section:first-of-type h1,
+.ocean section:first-of-type p {
+  color: #000000 !important;
+}
+
+

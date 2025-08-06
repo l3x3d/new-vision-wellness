@@ -1,12 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
+import { track } from '@vercel/analytics';
 import { SparklesIcon, MenuIconSVG, XIconSVG } from './IconComponents';
 
 interface HeaderProps {
   onOpenModal: () => void;
+  onOpenHIPAAChat?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
+const Header: React.FC<HeaderProps> = ({ onOpenModal, onOpenHIPAAChat }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -59,12 +61,50 @@ const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
               ))}
             </nav>
             <div className="hidden lg:flex items-center space-x-4">
-              <button
-                onClick={onOpenModal}
-                className="bg-sky-600 text-white font-semibold px-5 py-2 rounded-full hover:bg-sky-700 transition-all transform hover:scale-105"
-              >
-                Get Help Now
-              </button>
+              <div className="relative group">
+                <button
+                  onClick={() => {
+                    track('get_help_now_clicked', {
+                      location: 'header',
+                      button_text: 'Get Help Now'
+                    });
+                    onOpenModal();
+                  }}
+                  className="bg-sky-600 text-white font-semibold px-5 py-2 rounded-full hover:bg-sky-700 transition-all transform hover:scale-105"
+                >
+                  Get Help Now
+                </button>
+                {onOpenHIPAAChat && (
+                  <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="p-3">
+                      <button
+                        onClick={() => {
+                          track('insurance_verification_dropdown_clicked', {
+                            location: 'header_dropdown',
+                            button_text: 'Insurance Verification'
+                          });
+                          onOpenModal();
+                        }}
+                        className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md mb-1"
+                      >
+                        📋 Insurance Verification
+                      </button>
+                      <button
+                        onClick={() => {
+                          track('hipaa_chat_clicked', {
+                            location: 'header_dropdown',
+                            button_text: 'HIPAA-Compliant AI Chat'
+                          });
+                          onOpenHIPAAChat();
+                        }}
+                        className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+                      >
+                        🔒 HIPAA-Compliant AI Chat
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
             <div className="lg:hidden flex items-center space-x-2">
               <button 
@@ -95,15 +135,36 @@ const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
                     </a>
                 ))}
             </nav>
-            <button
-                onClick={() => {
-                    setIsMenuOpen(false);
-                    onOpenModal();
-                }}
-                className="mt-12 bg-sky-600 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-sky-700 transition-all transform hover:scale-105"
-            >
-                Get Help Now
-            </button>
+            <div className="flex flex-col items-center space-y-4 mt-12">
+              <button
+                  onClick={() => {
+                      track('insurance_verification_mobile_clicked', {
+                        location: 'mobile_menu',
+                        button_text: 'Insurance Verification'
+                      });
+                      setIsMenuOpen(false);
+                      onOpenModal();
+                  }}
+                  className="bg-sky-600 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-sky-700 transition-all transform hover:scale-105"
+              >
+                  📋 Insurance Verification
+              </button>
+              {onOpenHIPAAChat && (
+                <button
+                    onClick={() => {
+                        track('hipaa_chat_mobile_clicked', {
+                          location: 'mobile_menu',
+                          button_text: 'HIPAA AI Chat'
+                        });
+                        setIsMenuOpen(false);
+                        onOpenHIPAAChat();
+                    }}
+                    className="bg-green-600 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-green-700 transition-all transform hover:scale-105"
+                >
+                    🔒 HIPAA AI Chat
+                </button>
+              )}
+            </div>
         </div>
       </div>
     </>

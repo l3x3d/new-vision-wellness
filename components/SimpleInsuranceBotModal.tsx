@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { track } from '@vercel/analytics';
 import { XIcon, SendIcon, ShieldCheckIcon } from './IconComponents';
 
 interface Message {
@@ -130,6 +131,12 @@ const SimpleInsuranceBotModal: React.FC<SimpleInsuranceBotModalProps> = ({ isOpe
       case 'situation':
         setUserInfo(prev => ({ ...prev, situation: trimmedInput }));
         setStep('complete');
+        // Track insurance form completion
+        track('insurance_form_completed', {
+          location: 'insurance_modal',
+          form_type: 'full_insurance_verification',
+          has_insurance: userInfo.insuranceCarrier ? 'yes' : 'no'
+        });
         return "Thank you for providing all that information! We have everything we need to verify your insurance coverage. A member of our admissions team will contact you within 24 hours to discuss your benefits and help you get started with treatment. Is there anything else you'd like to know about our programs?";
       
       case 'complete':

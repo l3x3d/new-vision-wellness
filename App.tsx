@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { track } from '@vercel/analytics';
 import { ThemeProvider } from './components/ThemeContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -15,6 +16,7 @@ import HopeStoryGenerator from './components/HopeStoryGenerator';
 import Footer from './components/Footer';
 // import InsuranceBotModal from './components/InsuranceBotModal';
 import SimpleInsuranceBotModal from './components/SimpleInsuranceBotModal';
+import HIPAACompliantAIChat from './components/HIPAACompliantAIChat';
 // import SecureInsuranceBotModal from './components/SecureInsuranceBotModal';
 import FloatingBotButton from './components/FloatingBotButton';
 import ProgramsPage from './pages/ProgramsPage';
@@ -36,6 +38,7 @@ function getPageIdentifier(hash = window.location.hash) {
 
 const App: React.FC = () => {
   const [isBotOpen, setIsBotOpen] = useState(false);
+  const [isHIPAAChatOpen, setIsHIPAAChatOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(getPageIdentifier());
 
   useEffect(() => {
@@ -45,11 +48,26 @@ const App: React.FC = () => {
       // Use a functional update for setting state to avoid stale closure issues.
       setCurrentPage(prevPage => {
         if (newPage !== prevPage) {
+          // Track page navigation
+          track('page_navigation', {
+            from_page: prevPage,
+            to_page: newPage,
+            navigation_type: 'hash_change'
+          });
+          
           // This is a page navigation, scroll to the top.
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else if (newPage === 'home') {
           // This is a same-page anchor link on the homepage.
           const id = window.location.hash.replace(/^#/, '');
+          
+          // Track section navigation on homepage
+          if (id) {
+            track('section_navigation', {
+              section: id,
+              page: 'home'
+            });
+          }
           
           // Use a timeout to allow the DOM to be ready for scrolling
           setTimeout(() => {
@@ -114,13 +132,17 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider>
-      <Header onOpenModal={() => setIsBotOpen(true)} />
+      <Header 
+        onOpenModal={() => setIsBotOpen(true)} 
+        onOpenHIPAAChat={() => setIsHIPAAChatOpen(true)} 
+      />
       <main>
         {renderPage()}
       </main>
       <Footer />
       <FloatingBotButton onOpen={() => setIsBotOpen(true)} />
       <SimpleInsuranceBotModal isOpen={isBotOpen} onClose={() => setIsBotOpen(false)} />
+      <HIPAACompliantAIChat isOpen={isHIPAAChatOpen} onClose={() => setIsHIPAAChatOpen(false)} />
       
       {/* Vercel Analytics & Speed Insights - Automatically tracks page views and performance */}
       <Analytics />

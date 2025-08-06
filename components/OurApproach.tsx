@@ -2,8 +2,9 @@ import React from 'react';
 
 const OurApproach: React.FC = () => {
   return (
-    <section id="approach" className="py-20 md:py-32 bg-slate-50">
-      <div className="container mx-auto px-6">
+    <section id="approach" className="relative py-20 md:py-32 bg-slate-50 overflow-hidden">
+      
+      <div className="relative z-10 container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="order-2 md:order-1">
             <span className="text-sky-600 font-semibold tracking-wider uppercase">Our Philosophy</span>

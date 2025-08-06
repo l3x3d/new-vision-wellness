@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { track } from '@vercel/analytics';
 import type { Program } from '../types';
 import { ClockIconSVG, CheckIconSVG } from './IconComponents';
 
@@ -88,7 +89,14 @@ const ProgramCard: React.FC<ProgramCardProps> = ({ program }) => {
         </div>
       ) : (
         <button
-          onClick={() => setShowComingSoon(true)}
+          onClick={() => {
+            track('program_learn_more_clicked', {
+              program_name: program.title,
+              program_intensity: program.intensity || 'unknown',
+              program_duration: program.duration || 'unknown'
+            });
+            setShowComingSoon(true);
+          }}
           className="mt-auto text-sky-600 font-semibold hover:text-sky-700 transition-colors flex items-center group-hover:translate-x-1 transition-transform"
         >
           Learn More <span className="arrow-animate inline-block transition-transform duration-200 ml-1">&rarr;</span>

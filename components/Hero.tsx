@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { track } from '@vercel/analytics';
 
 interface HeroProps {
   onOpenModal: () => void;
@@ -80,7 +81,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   };
 
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center text-white overflow-hidden pt-24">
+    <section className="hero-section relative h-screen min-h-[600px] flex items-center justify-center text-white overflow-hidden pt-24">
       {/* Background Image Slider */}
       <div className="absolute inset-0 w-full h-full">
         {heroImages.map((image, index) => (
@@ -108,26 +109,41 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           </div>
         ))}
       </div>
+      
+
+      
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/30 z-5"></div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center animate-fade-in-up">
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
+        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4 text-black" style={{ textShadow: '2px 2px 8px rgba(255,255,255,0.7)', color: '#000000' }}>
           A New Vision for a Brighter Future
         </h1>
-        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.7)' }}>
+        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-black" style={{ textShadow: '1px 1px 4px rgba(255,255,255,0.7)', color: '#000000' }}>
           Compassionate, personalized care to help you reclaim your life from addiction. Your journey to recovery starts here.
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <button
-            onClick={onOpenModal}
+            onClick={() => {
+              track('insurance_validation_cta_clicked', {
+                location: 'hero_section',
+                button_text: 'Validate Insurance with Ai'
+              });
+              onOpenModal();
+            }}
             className="bg-sky-600 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-sky-700 transition-all transform hover:scale-105 shadow-2xl w-full sm:w-auto"
           >
             Validate Insurance with Ai
           </button>
           <a
             href="#learn-more"
+            onClick={() => {
+              track('learn_more_clicked', {
+                location: 'hero_section',
+                button_text: 'Learn More'
+              });
+            }}
             className="bg-white/20 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-white/30 transition-all transform hover:scale-105 w-full sm:w-auto"
           >
             Learn More
