@@ -273,11 +273,12 @@ const programsData: Program[] = [
 ];
 
 interface ProgramsProps {
-  onOpenModal: () => void;
+  // No props needed currently
 }
 
-const Programs: React.FC<ProgramsProps> = ({ onOpenModal }) => {
+const Programs: React.FC<ProgramsProps> = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [showComingSoonCTA, setShowComingSoonCTA] = useState<boolean>(false);
   
   const categories = ['All', 'Core Programs', 'Specialized Care', 'Therapeutic Modalities', 'Support Services'];
   
@@ -320,7 +321,7 @@ const Programs: React.FC<ProgramsProps> = ({ onOpenModal }) => {
         {/* Programs Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPrograms.map((program, index) => (
-            <ProgramCard key={`${program.title}-${index}`} program={program} onOpenModal={onOpenModal} />
+            <ProgramCard key={`${program.title}-${index}`} program={program} />
           ))}
         </div>
 
@@ -335,11 +336,27 @@ const Programs: React.FC<ProgramsProps> = ({ onOpenModal }) => {
               unique needs, goals, and circumstances. Every recovery journey is different, and we're here to support yours.
             </p>
             <button
-              onClick={onOpenModal}
+              onClick={() => setShowComingSoonCTA(true)}
               className="bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
               Get Personalized Recommendations
             </button>
+            {showComingSoonCTA && (
+              <div className="mt-4 p-4 bg-sky-50 rounded-lg border border-sky-200">
+                <p className="text-sky-700 font-semibold text-center">
+                  Coming Soon
+                </p>
+                <p className="text-sky-600 text-sm text-center mt-1">
+                  Personalized recommendations will be available soon!
+                </p>
+                <button
+                  onClick={() => setShowComingSoonCTA(false)}
+                  className="text-sky-500 text-xs underline block mx-auto mt-2 hover:text-sky-700"
+                >
+                  Go back
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

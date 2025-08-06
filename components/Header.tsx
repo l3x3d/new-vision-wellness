@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { SparklesIcon, MenuIcon, XIcon } from './IconComponents';
+import { SparklesIcon, MenuIconSVG, XIconSVG } from './IconComponents';
 
 interface HeaderProps {
   onOpenModal: () => void;
@@ -73,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
                 aria-label="Toggle menu"
                 aria-expanded={isMenuOpen}
               >
-                {isMenuOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
+                {isMenuOpen ? <XIconSVG className="h-6 w-6" /> : <MenuIconSVG className="h-6 w-6" />}
               </button>
             </div>
           </div>

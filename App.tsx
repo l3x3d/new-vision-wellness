@@ -1,5 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { ThemeProvider } from './components/ThemeContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -83,7 +85,7 @@ const App: React.FC = () => {
   const renderPage = () => {
     switch (currentPage) {
       case 'programs-page':
-        return <ProgramsPage onOpenModal={() => setIsBotOpen(true)} />;
+        return <ProgramsPage />;
       case 'learn-more':
         return <LearnMorePage onOpenModal={() => setIsBotOpen(true)} />;
       case 'testimonials-page':
@@ -100,7 +102,7 @@ const App: React.FC = () => {
             <div id="what-we-treat"><WhatWeTreat /></div>
             <div id="approach"><OurApproach /></div>
             <div id="why-choose-us"><WhyChooseUs /></div>
-            <div id="programs"><Programs onOpenModal={() => setIsBotOpen(true)} /></div>
+            <div id="programs"><Programs /></div>
             <div id="testimonials"><Testimonials /></div>
             <InsuranceBanner onOpenModal={() => setIsBotOpen(true)} />
             <HopeStoryGenerator />
@@ -119,6 +121,10 @@ const App: React.FC = () => {
       <Footer />
       <FloatingBotButton onOpen={() => setIsBotOpen(true)} />
       <SimpleInsuranceBotModal isOpen={isBotOpen} onClose={() => setIsBotOpen(false)} />
+      
+      {/* Vercel Analytics & Speed Insights - Automatically tracks page views and performance */}
+      <Analytics />
+      <SpeedInsights />
     </ThemeProvider>
   );
 };

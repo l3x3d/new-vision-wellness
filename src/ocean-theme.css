@@ -11,8 +11,8 @@
   --ocean-text-primary: #334155;   /* Lighter slate text */
   --ocean-text-secondary: #64748b; /* Medium gray text */
   --ocean-text-accent: #ffffff;    /* White text on colored backgrounds */
-  --ocean-accent-primary: #34d399; /* Brighter, lighter green accent */
-  --ocean-accent-secondary: #10b981; /* Medium green */
+  --ocean-accent-primary: #3b82f6;   /* Blue primary accent */
+  --ocean-accent-secondary: #2563eb; /* Darker blue secondary */
   --ocean-border: #f1f5f9;         /* Ultra light border */
 }
 
@@ -25,8 +25,8 @@
   --ocean-text-primary: #f1f5f9;   /* Light text */
   --ocean-text-secondary: #cbd5e1; /* Light gray text */
   --ocean-text-accent: #ffffff;    /* White text */
-  --ocean-accent-primary: #10b981; /* Green accent */
-  --ocean-accent-secondary: #059669; /* Darker green */
+  --ocean-accent-primary: #3b82f6; /* Blue accent */
+  --ocean-accent-secondary: #2563eb; /* Darker blue */
   --ocean-border: #334155;         /* Dark border */
 }
 
@@ -51,11 +51,11 @@
 .ocean.dark .border-slate-200 { border-color: #334155 !important; }
 
 .ocean.dark .bg-gradient-to-r { 
-  background: linear-gradient(to right, #3b82f6, #10b981) !important;
+  background: linear-gradient(to right, #3b82f6, #2563eb) !important;
 }
 
 .ocean.dark .bg-gradient-to-br { 
-  background: linear-gradient(to bottom right, #3b82f6, #059669) !important;
+  background: linear-gradient(to bottom right, #3b82f6, #1d4ed8) !important;
 }
 
 /* Ultra-light ocean theme overrides */
@@ -74,33 +74,33 @@
 .ocean .text-slate-500 { color: #64748b !important; } /* Medium gray text */
 .ocean .text-slate-300 { color: #cbd5e1 !important; } /* Very light gray text */
 
-.ocean .text-sky-500 { color: #34d399 !important; } /* Brighter green accent */
-.ocean .text-sky-400 { color: #6ee7b7 !important; } /* Even lighter green */
-.ocean .text-sky-600 { color: #10b981 !important; } /* Medium green */
+.ocean .text-sky-500 { color: #3b82f6 !important; } /* Blue accent */
+.ocean .text-sky-400 { color: #60a5fa !important; } /* Lighter blue */
+.ocean .text-sky-600 { color: #2563eb !important; } /* Darker blue */
 
 .ocean .border-slate-700 { border-color: #f1f5f9 !important; } /* Ultra light border */
 .ocean .border-slate-800 { border-color: #e2e8f0 !important; } /* Light border */
 .ocean .border-slate-200 { border-color: #f1f5f9 !important; } /* Ultra light border */
 
-.ocean .hover\:text-sky-600:hover { color: #10b981 !important; }
-.ocean .hover\:text-sky-400:hover { color: #6ee7b7 !important; }
+.ocean .hover\:text-sky-600:hover { color: #2563eb !important; }
+.ocean .hover\:text-sky-400:hover { color: #60a5fa !important; }
 .ocean .hover\:text-white:hover { color: #334155 !important; } /* Lighter dark text on hover */
 .ocean .hover\:text-slate-300:hover { color: #94a3b8 !important; }
 
 /* Gradients for ultra-light ocean theme */
 .ocean .bg-gradient-to-r { 
-  background: linear-gradient(to right, #60a5fa, #34d399) !important; /* Lighter blue to brighter green */
+  background: linear-gradient(to right, #60a5fa, #3b82f6) !important; /* Light blue to blue */
 }
 
 .ocean .bg-gradient-to-br { 
-  background: linear-gradient(to bottom right, #60a5fa, #10b981) !important; /* Lighter blue to green */
+  background: linear-gradient(to bottom right, #60a5fa, #2563eb) !important; /* Light blue to darker blue */
 }
 
 /* Buttons and interactive elements */
-.ocean .bg-sky-500 { background-color: #10b981 !important; }
-.ocean .bg-sky-600 { background-color: #059669 !important; }
-.ocean .hover\:bg-sky-600:hover { background-color: #059669 !important; }
-.ocean .hover\:bg-sky-700:hover { background-color: #047857 !important; }
+.ocean .bg-sky-500 { background-color: #3b82f6 !important; }
+.ocean .bg-sky-600 { background-color: #2563eb !important; }
+.ocean .hover\:bg-sky-600:hover { background-color: #2563eb !important; }
+.ocean .hover\:bg-sky-700:hover { background-color: #1d4ed8 !important; }
 
 /* Cards and surfaces */
 .ocean .bg-white\/95 { background-color: rgba(255, 255, 255, 0.98) !important; }
@@ -113,4 +113,20 @@
 
 .ocean .shadow-lg { 
   box-shadow: 0 10px 15px -3px rgba(71, 85, 105, 0.08), 0 4px 6px -2px rgba(71, 85, 105, 0.04) !important; 
+}
+
+/* Material Icons alignment improvements */
+.material-icons,
+.material-icons-outlined,
+.material-icons-round {
+  vertical-align: text-bottom;
+  line-height: 1;
+}
+
+/* Better alignment for inline icons with text */
+.material-icons.inline-text,
+.material-icons-outlined.inline-text,
+.material-icons-round.inline-text {
+  vertical-align: -0.125em;
+  margin-top: -0.125em;
 }

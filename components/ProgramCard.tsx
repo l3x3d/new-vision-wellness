@@ -1,14 +1,15 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import type { Program } from '../types';
-import { ClockIcon, CheckIcon } from './IconComponents';
+import { ClockIconSVG, CheckIconSVG } from './IconComponents';
 
 interface ProgramCardProps {
   program: Program;
-  onOpenModal: () => void;
 }
 
-const ProgramCard: React.FC<ProgramCardProps> = ({ program, onOpenModal }) => {
+const ProgramCard: React.FC<ProgramCardProps> = ({ program }) => {
+  const [showComingSoon, setShowComingSoon] = useState(false);
+
   const getIntensityColor = (intensity?: string) => {
     switch (intensity) {
       case 'Low': return 'text-green-600 bg-green-100';
@@ -38,7 +39,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({ program, onOpenModal }) => {
         <h3 className="text-2xl font-bold text-slate-800 mb-2">{program.title}</h3>
         {program.duration && (
           <div className="flex items-center text-slate-500 text-sm">
-            <ClockIcon className="h-4 w-4 mr-2 flex-shrink-0" />
+            <ClockIconSVG className="h-4 w-4 mr-2 flex-shrink-0" />
             <span>{program.duration}</span>
           </div>
         )}
@@ -56,7 +57,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({ program, onOpenModal }) => {
           <ul className="space-y-2">
             {program.features.slice(0, 3).map((feature, index) => (
               <li key={index} className="flex items-start text-sm text-slate-600">
-                <CheckIcon className="h-4 w-4 text-sky-500 mr-2 mt-1 flex-shrink-0" />
+                <CheckIconSVG className="h-4 w-4 text-sky-500 mr-2 mt-1 flex-shrink-0" />
                 <span>{feature}</span>
               </li>
             ))}
@@ -69,13 +70,30 @@ const ProgramCard: React.FC<ProgramCardProps> = ({ program, onOpenModal }) => {
         </div>
       )}
 
-      {/* Learn More Button */}
-      <button
-        onClick={onOpenModal}
-        className="mt-auto text-sky-600 font-semibold hover:text-sky-700 transition-colors flex items-center group-hover:translate-x-1 transition-transform"
-      >
-        Learn More <span className="arrow-animate inline-block transition-transform duration-200 ml-1">&rarr;</span>
-      </button>
+      {/* Learn More Button / Coming Soon Message */}
+      {showComingSoon ? (
+        <div className="mt-auto p-3 bg-sky-50 rounded-lg border border-sky-200">
+          <p className="text-sky-700 font-semibold text-center">
+            Coming Soon
+          </p>
+          <p className="text-sky-600 text-sm text-center mt-1">
+            More details will be available soon!
+          </p>
+          <button
+            onClick={() => setShowComingSoon(false)}
+            className="text-sky-500 text-xs underline block mx-auto mt-2 hover:text-sky-700"
+          >
+            Go back
+          </button>
+        </div>
+      ) : (
+        <button
+          onClick={() => setShowComingSoon(true)}
+          className="mt-auto text-sky-600 font-semibold hover:text-sky-700 transition-colors flex items-center group-hover:translate-x-1 transition-transform"
+        >
+          Learn More <span className="arrow-animate inline-block transition-transform duration-200 ml-1">&rarr;</span>
+        </button>
+      )}
     </div>
   );
 };

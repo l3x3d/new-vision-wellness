@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import ProgramCard from '../components/ProgramCard';
 import PageHeader from '../components/PageHeader';
 import type { Program } from '../types';
@@ -24,10 +24,11 @@ const programsData: Program[] = [
 ];
 
 interface ProgramsPageProps {
-  onOpenModal: () => void;
+  // No props needed currently
 }
 
-const ProgramsPage: React.FC<ProgramsPageProps> = ({ onOpenModal }) => {
+const ProgramsPage: React.FC<ProgramsPageProps> = () => {
+  const [showComingSoonCTA, setShowComingSoonCTA] = useState<boolean>(false);
   return (
     <div className="bg-white">
       <PageHeader
@@ -43,7 +44,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ onOpenModal }) => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {programsData.map((program, index) => (
-            <ProgramCard key={index} program={program} onOpenModal={onOpenModal} />
+            <ProgramCard key={index} program={program} />
           ))}
         </div>          <div className="text-center bg-slate-100 p-10 rounded-2xl shadow-xl max-w-4xl mx-auto ring-1 ring-slate-200">
               <h2 className="text-3xl font-bold text-slate-800 mb-4">Ready to Take the Next Step?</h2>
@@ -51,11 +52,27 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ onOpenModal }) => {
                 Verifying your insurance is a simple, confidential first step towards getting the help you deserve. Our team is ready to assist you.
             </p>
             <button
-                onClick={onOpenModal}
+                onClick={() => setShowComingSoonCTA(true)}
                 className="bg-sky-600 text-white font-bold px-8 py-4 rounded-full text-lg hover:bg-sky-700 transition-all transform hover:scale-105 shadow-lg"
             >
                 Validate Insurance with Ai
             </button>
+            {showComingSoonCTA && (
+              <div className="mt-6 p-4 bg-sky-50 rounded-lg border border-sky-200 max-w-md mx-auto">
+                <p className="text-sky-700 font-semibold text-center">
+                  Coming Soon
+                </p>
+                <p className="text-sky-600 text-sm text-center mt-1">
+                  AI insurance validation will be available soon!
+                </p>
+                <button
+                  onClick={() => setShowComingSoonCTA(false)}
+                  className="text-sky-500 text-xs underline block mx-auto mt-2 hover:text-sky-700"
+                >
+                  Go back
+                </button>
+              </div>
+            )}
         </div>
       </div>
     </section>

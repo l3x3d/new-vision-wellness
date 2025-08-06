@@ -20,9 +20,9 @@ const MaterialIcon: React.FC<IconProps & { iconName: string }> = ({
   const hasExplicitSize = /(?:h-\d+|w-\d+|text-\d*xl|text-xs|text-sm|text-base|text-lg)/.test(className);
   
   const sizeClass = hasExplicitSize ? '' : (typeof size === 'number' ? '' : 
-    size === 'small' ? 'text-2xl' :
-    size === 'medium' ? 'text-3xl' :
-    'text-4xl');
+    size === 'small' ? 'text-lg' :
+    size === 'medium' ? 'text-xl' :
+    'text-2xl');
   
   const variantClass = 
     variant === 'filled' ? 'material-icons' :
@@ -33,13 +33,56 @@ const MaterialIcon: React.FC<IconProps & { iconName: string }> = ({
   
   return (
     <span 
-      className={`${variantClass} ${sizeClass} ${className} ${animate ? 'transition-all duration-300 hover:scale-110' : ''}`}
-      style={style}
+      className={`${variantClass} ${sizeClass} ${className} ${animate ? 'transition-all duration-300 hover:scale-110' : ''} inline-block align-text-bottom`}
+      style={{
+        ...style,
+        lineHeight: '1',
+        verticalAlign: 'text-bottom'
+      }}
     >
       {iconName}
     </span>
   );
 };
+
+// SVG-based icons for better text alignment
+interface SVGIconProps {
+  className?: string;
+  size?: number;
+}
+
+// SVG Clock Icon - better for text alignment
+export const ClockIconSVG: React.FC<SVGIconProps> = ({ className = "h-4 w-4", size }) => (
+  <svg 
+    className={className} 
+    width={size} 
+    height={size} 
+    fill="none" 
+    stroke="currentColor" 
+    viewBox="0 0 24 24" 
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ flexShrink: 0, display: 'inline-block' }}
+  >
+    <circle cx="12" cy="12" r="10"></circle>
+    <polyline points="12,6 12,12 16,14"></polyline>
+  </svg>
+);
+
+// SVG Check Icon - better for text alignment
+export const CheckIconSVG: React.FC<SVGIconProps> = ({ className = "h-4 w-4", size }) => (
+  <svg 
+    className={className} 
+    width={size} 
+    height={size} 
+    fill="none" 
+    stroke="currentColor" 
+    viewBox="0 0 24 24" 
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ flexShrink: 0, display: 'inline-block' }}
+  >
+    <polyline points="20,6 9,17 4,12"></polyline>
+  </svg>
+);
 
 // Navigation and UI Icons
 export const UsersIcon: React.FC<IconProps> = (props) => (
@@ -200,4 +243,104 @@ export const BbbLogo: React.FC<IconProps> = (props) => (
   <MaterialIcon {...props} iconName="verified" />
 );
 
-export default MaterialIcon;
+// SVG Icons for better text alignment
+// SVG Phone Icon
+export const PhoneIconSVG: React.FC<SVGIconProps> = ({ className = "h-4 w-4", size }) => (
+  <svg 
+    className={className} 
+    width={size} 
+    height={size} 
+    fill="none" 
+    stroke="currentColor" 
+    viewBox="0 0 24 24" 
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ flexShrink: 0, display: 'inline-block' }}
+  >
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+  </svg>
+);
+
+// SVG Email Icon
+export const EmailIconSVG: React.FC<SVGIconProps> = ({ className = "h-4 w-4", size }) => (
+  <svg 
+    className={className} 
+    width={size} 
+    height={size} 
+    fill="none" 
+    stroke="currentColor" 
+    viewBox="0 0 24 24" 
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ flexShrink: 0, display: 'inline-block' }}
+  >
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+  </svg>
+);
+
+// SVG Location Icon
+export const LocationIconSVG: React.FC<SVGIconProps> = ({ className = "h-4 w-4", size }) => (
+  <svg 
+    className={className} 
+    width={size} 
+    height={size} 
+    fill="none" 
+    stroke="currentColor" 
+    viewBox="0 0 24 24" 
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ flexShrink: 0, display: 'inline-block' }}
+  >
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+    <circle cx="12" cy="10" r="3"></circle>
+  </svg>
+);
+
+// SVG Chat Bubble Icon
+export const ChatBubbleIconSVG: React.FC<SVGIconProps> = ({ className = "h-4 w-4", size }) => (
+  <svg 
+    className={className} 
+    width={size} 
+    height={size} 
+    fill="none" 
+    stroke="currentColor" 
+    viewBox="0 0 24 24" 
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ flexShrink: 0, display: 'inline-block' }}
+  >
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+  </svg>
+);
+
+// SVG Menu Icon
+export const MenuIconSVG: React.FC<SVGIconProps> = ({ className = "h-4 w-4", size }) => (
+  <svg 
+    className={className} 
+    width={size} 
+    height={size} 
+    fill="none" 
+    stroke="currentColor" 
+    viewBox="0 0 24 24" 
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ flexShrink: 0, display: 'inline-block' }}
+  >
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <line x1="3" y1="12" x2="21" y2="12"></line>
+    <line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+);
+
+// SVG X (Close) Icon
+export const XIconSVG: React.FC<SVGIconProps> = ({ className = "h-4 w-4", size }) => (
+  <svg 
+    className={className} 
+    width={size} 
+    height={size} 
+    fill="none" 
+    stroke="currentColor" 
+    viewBox="0 0 24 24" 
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ flexShrink: 0, display: 'inline-block' }}
+  >
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+  </svg>
+);
