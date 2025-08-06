@@ -117,10 +117,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center animate-fade-in-up">
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4 text-black" style={{ textShadow: '2px 2px 8px rgba(255,255,255,0.7)', color: '#000000' }}>
+        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4 text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)', color: '#ffffff' }}>
           A New Vision for a Brighter Future
         </h1>
-        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-black" style={{ textShadow: '1px 1px 4px rgba(255,255,255,0.7)', color: '#000000' }}>
+        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-white" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.7)', color: '#ffffff' }}>
           Compassionate, personalized care to help you reclaim your life from addiction. Your journey to recovery starts here.
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">

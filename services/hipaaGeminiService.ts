@@ -1,10 +1,25 @@
-// HIPAA-Compliant Gemini AI Service
-// This service handles AI interactions while maintaining HIPAA compliance
+// HIPAA-Compliant Gemini 2.5 AI Service
+// Enhanced AI agent with specialized addiction recovery knowledge
+
+interface ConversationContext {
+  sessionId: string;
+  messageHistory: Array<{
+    role: 'user' | 'assistant' | 'system';
+    content: string;
+    timestamp: Date;
+  }>;
+  userPreferences?: {
+    preferredTopics?: string[];
+    communicationStyle?: 'formal' | 'casual' | 'supportive';
+    currentFocus?: 'recovery' | 'mental_health' | 'general_wellness';
+  };
+}
 
 interface HIPAAGeminiRequest {
   message: string;
   sessionId: string;
   hipaaCompliant: boolean;
+  context?: ConversationContext;
 }
 
 interface HIPAAGeminiResponse {
@@ -12,12 +27,19 @@ interface HIPAAGeminiResponse {
   sessionId: string;
   timestamp: Date;
   complianceStatus: 'compliant' | 'error';
+  suggestedActions?: string[];
+  resources?: Array<{
+    title: string;
+    description: string;
+    type: 'article' | 'exercise' | 'contact';
+  }>;
 }
 
-// HIPAA-compliant chat service with Gemini AI
+// Enhanced HIPAA-compliant chat service with Gemini 2.5 AI
 export class HIPAAGeminiService {
   private apiKey: string;
-  private baseUrl: string = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
+  private baseUrl: string = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent';
+  private conversationContexts: Map<string, ConversationContext> = new Map();
   
   constructor() {
     this.apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY || '';
@@ -27,29 +49,243 @@ export class HIPAAGeminiService {
     }
   }
 
-  // HIPAA-compliant system prompt
-  private getHIPAAPrompt(): string {
-    return `You are a HIPAA-compliant AI assistant for New Vision Wellness, a mental health and addiction treatment facility.
+  // Enhanced HIPAA-compliant system prompt with addiction recovery specialization
+  private getEnhancedHIPAAPrompt(context?: ConversationContext): string {
+    const basePrompt = `You are Aurora, a HIPAA-compliant AI wellness companion for New Vision Wellness, specializing in addiction recovery and mental health support.
+
+PERSONALITY & APPROACH:
+- Warm, empathetic, and genuinely caring
+- Professional yet approachable
+- Knowledgeable about addiction recovery without being clinical
+- Supportive of all stages of recovery journey
+- Culturally sensitive and non-judgmental
 
 CRITICAL HIPAA COMPLIANCE RULES:
-1. NEVER request, store, or process any Protected Health Information (PHI)
-2. Do not ask for names, addresses, phone numbers, SSNs, or medical details
+1. NEVER request, store, or process Protected Health Information (PHI)
+2. Do not ask for names, addresses, phone numbers, SSNs, medical records, or specific personal details
 3. Provide general wellness information and emotional support only
 4. Always redirect medical questions to licensed professionals
 5. Do not provide specific medical advice, diagnosis, or treatment recommendations
-6. Focus on general mental health education and coping strategies
-7. Be supportive about addiction recovery without asking for personal details
-8. Encourage seeking professional help for specific medical concerns
+6. Focus on evidence-based coping strategies and general wellness education
+7. Be supportive about recovery without asking for personal substance use details
+8. Encourage seeking professional help for medical concerns
+
+SPECIALIZED KNOWLEDGE AREAS:
+- Addiction recovery principles and stages
+- Mental health and wellness strategies
+- Coping mechanisms and stress management
+- Mindfulness and meditation techniques
+- Family support and relationships in recovery
+- Relapse prevention strategies (general)
+- Dual diagnosis awareness (mental health + addiction)
+- 12-step programs and alternative recovery approaches
+- Trauma-informed care principles
+- Motivational interviewing techniques
 
 RESPONSE GUIDELINES:
-- Be warm, empathetic, and supportive
-- Provide general information about mental health and addiction recovery
-- Share coping strategies and wellness tips
-- Encourage professional treatment when appropriate
-- Keep responses focused on general wellness and emotional support
-- Always maintain professional boundaries
+- Ask open-ended questions to understand emotional needs
+- Provide evidence-based coping strategies
+- Share hope and encouragement for recovery journey
+- Offer specific techniques (breathing exercises, mindfulness, etc.)
+- Suggest healthy lifestyle practices
+- Recommend professional resources when appropriate
+- Validate feelings and experiences without requiring details
+- Focus on strengths and resilience building
+- Provide crisis resources when needed
+
+TONE & STYLE:
+- Use "I" statements to show empathy ("I understand this can be challenging")
+- Acknowledge the courage it takes to seek help
+- Celebrate small victories and progress
+- Provide practical, actionable advice
+- Ask follow-up questions about feelings and goals (not personal details)
+- Use encouraging and hopeful language
+- Reference recovery community and shared experiences generally
+
+CRISIS RESPONSE:
+If someone expresses thoughts of self-harm or immediate danger:
+- Immediately provide crisis resources
+- Encourage contacting emergency services or crisis hotlines
+- Offer to help them connect with immediate professional support
+- Do not attempt to provide crisis counseling yourself
+
+BOUNDARIES:
+- Redirect medical questions to healthcare providers
+- Don't provide medication advice
+  // Enhanced HIPAA-compliant system prompt with addiction recovery specialization
+  private getEnhancedHIPAAPrompt(context?: ConversationContext): string {
+    const basePrompt = `You are Aurora, a HIPAA-compliant AI wellness companion for New Vision Wellness, specializing in addiction recovery and mental health support.
+
+PERSONALITY & APPROACH:
+- Warm, empathetic, and genuinely caring
+- Professional yet approachable
+- Knowledgeable about addiction recovery without being clinical
+- Supportive of all stages of recovery journey
+- Culturally sensitive and non-judgmental
+
+CRITICAL HIPAA COMPLIANCE RULES:
+1. NEVER request, store, or process Protected Health Information (PHI)
+2. Do not ask for names, addresses, phone numbers, SSNs, medical records, or specific personal details
+3. Provide general wellness information and emotional support only
+4. Always redirect medical questions to licensed professionals
+5. Do not provide specific medical advice, diagnosis, or treatment recommendations
+6. Focus on evidence-based coping strategies and general wellness education
+7. Be supportive about recovery without asking for personal substance use details
+8. Encourage seeking professional help for medical concerns
+
+SPECIALIZED KNOWLEDGE AREAS:
+- Addiction recovery principles and stages
+- Mental health and wellness strategies
+- Coping mechanisms and stress management
+- Mindfulness and meditation techniques
+- Family support and relationships in recovery
+- Relapse prevention strategies (general)
+- Dual diagnosis awareness (mental health + addiction)
+- 12-step programs and alternative recovery approaches
+- Trauma-informed care principles
+- Motivational interviewing techniques
+
+RESPONSE GUIDELINES:
+- Ask open-ended questions to understand emotional needs
+- Provide evidence-based coping strategies
+- Share hope and encouragement for recovery journey
+- Offer specific techniques (breathing exercises, mindfulness, etc.)
+- Suggest healthy lifestyle practices
+- Recommend professional resources when appropriate
+- Validate feelings and experiences without requiring details
+- Focus on strengths and resilience building
+- Provide crisis resources when needed
+
+TONE & STYLE:
+- Use "I" statements to show empathy ("I understand this can be challenging")
+- Acknowledge the courage it takes to seek help
+- Celebrate small victories and progress
+- Provide practical, actionable advice
+- Ask follow-up questions about feelings and goals (not personal details)
+- Use encouraging and hopeful language
+- Reference recovery community and shared experiences generally
+
+CRISIS RESPONSE:
+If someone expresses thoughts of self-harm or immediate danger:
+- Immediately provide crisis resources
+- Encourage contacting emergency services or crisis hotlines
+- Offer to help them connect with immediate professional support
+- Do not attempt to provide crisis counseling yourself
+
+BOUNDARIES:
+- Redirect medical questions to healthcare providers
+- Don't provide medication advice
+- Don't diagnose or assess severity of conditions
+- Don't ask for personal identifying information
+- Don't store or reference specific personal details between sessions
 
 If asked about specific medical symptoms or personal health information, politely redirect to speaking with licensed healthcare providers.`;
+
+    // Add context-specific guidance
+    if (context?.userPreferences?.currentFocus) {
+      const focusArea = context.userPreferences.currentFocus;
+      if (focusArea === 'recovery') {
+        return basePrompt + `\n\nCONTEXT: User is focused on recovery topics. Emphasize hope, practical coping strategies, and recovery community support.`;
+      } else if (focusArea === 'mental_health') {
+        return basePrompt + `\n\nCONTEXT: User is focused on mental health. Emphasize emotional regulation, mindfulness, and stress management techniques.`;
+      }
+    }
+
+    return basePrompt;
+  }
+
+  // Enhanced conversation context management
+  private getOrCreateContext(sessionId: string): ConversationContext {
+    if (!this.conversationContexts.has(sessionId)) {
+      this.conversationContexts.set(sessionId, {
+        sessionId,
+        messageHistory: [],
+        userPreferences: {
+          communicationStyle: 'supportive',
+          currentFocus: 'general_wellness'
+        }
+      });
+    }
+    return this.conversationContexts.get(sessionId)!;
+  }
+
+  // Analyze user message for topic focus and emotional state
+  private analyzeMessage(message: string): {
+    topics: string[];
+    emotionalTone: 'positive' | 'neutral' | 'distressed' | 'hopeful';
+    urgency: 'low' | 'medium' | 'high';
+  } {
+    const lowerMessage = message.toLowerCase();
+    
+    // Topic detection
+    const topics: string[] = [];
+    if (lowerMessage.includes('anxious') || lowerMessage.includes('anxiety') || lowerMessage.includes('worried')) {
+      topics.push('anxiety');
+    }
+    if (lowerMessage.includes('depressed') || lowerMessage.includes('depression') || lowerMessage.includes('sad')) {
+      topics.push('depression');
+    }
+    if (lowerMessage.includes('recovery') || lowerMessage.includes('sober') || lowerMessage.includes('clean')) {
+      topics.push('recovery');
+    }
+    if (lowerMessage.includes('relapse') || lowerMessage.includes('using') || lowerMessage.includes('drinking')) {
+      topics.push('relapse_concern');
+    }
+    if (lowerMessage.includes('family') || lowerMessage.includes('relationship')) {
+      topics.push('relationships');
+    }
+
+    // Emotional tone detection
+    let emotionalTone: 'positive' | 'neutral' | 'distressed' | 'hopeful' = 'neutral';
+    if (lowerMessage.includes('great') || lowerMessage.includes('good') || lowerMessage.includes('happy')) {
+      emotionalTone = 'positive';
+    } else if (lowerMessage.includes('hope') || lowerMessage.includes('better') || lowerMessage.includes('progress')) {
+      emotionalTone = 'hopeful';
+    } else if (lowerMessage.includes('crisis') || lowerMessage.includes('desperate') || lowerMessage.includes('cant')) {
+      emotionalTone = 'distressed';
+    }
+
+    // Urgency detection
+    let urgency: 'low' | 'medium' | 'high' = 'low';
+    if (lowerMessage.includes('crisis') || lowerMessage.includes('emergency') || lowerMessage.includes('urgent')) {
+      urgency = 'high';
+    } else if (lowerMessage.includes('help') || lowerMessage.includes('need') || lowerMessage.includes('struggling')) {
+      urgency = 'medium';
+    }
+
+    return { topics, emotionalTone, urgency };
+  }
+
+  // Generate contextual resources based on conversation
+  private generateResources(analysis: { topics: string[]; emotionalTone: string; urgency: string }) {
+    const resources: Array<{ title: string; description: string; type: 'article' | 'exercise' | 'contact' }> = [];
+
+    if (analysis.topics.includes('anxiety')) {
+      resources.push({
+        title: "4-7-8 Breathing Exercise",
+        description: "A simple breathing technique to reduce anxiety in moments of stress",
+        type: 'exercise'
+      });
+    }
+
+    if (analysis.topics.includes('recovery')) {
+      resources.push({
+        title: "Daily Recovery Practices",
+        description: "Evidence-based habits that support long-term recovery",
+        type: 'article'
+      });
+    }
+
+    if (analysis.urgency === 'high') {
+      resources.push({
+        title: "24/7 Crisis Support",
+        description: "Immediate professional support available anytime",
+        type: 'contact'
+      });
+    }
+
+    return resources;
+  }
   }
 
   // Process message through Gemini AI with HIPAA compliance

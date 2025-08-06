@@ -17,6 +17,7 @@ import Footer from './components/Footer';
 // import InsuranceBotModal from './components/InsuranceBotModal';
 import SimpleInsuranceBotModal from './components/SimpleInsuranceBotModal';
 import HIPAACompliantAIChat from './components/HIPAACompliantAIChat';
+import EnhancedAIChat from './components/EnhancedAIChat';
 // import SecureInsuranceBotModal from './components/SecureInsuranceBotModal';
 import FloatingBotButton from './components/FloatingBotButton';
 import ProgramsPage from './pages/ProgramsPage';
@@ -39,6 +40,7 @@ function getPageIdentifier(hash = window.location.hash) {
 const App: React.FC = () => {
   const [isBotOpen, setIsBotOpen] = useState(false);
   const [isHIPAAChatOpen, setIsHIPAAChatOpen] = useState(false);
+  const [isEnhancedChatOpen, setIsEnhancedChatOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(getPageIdentifier());
 
   useEffect(() => {
@@ -134,7 +136,8 @@ const App: React.FC = () => {
     <ThemeProvider>
       <Header 
         onOpenModal={() => setIsBotOpen(true)} 
-        onOpenHIPAAChat={() => setIsHIPAAChatOpen(true)} 
+        onOpenHIPAAChat={() => setIsHIPAAChatOpen(true)}
+        onOpenEnhancedChat={() => setIsEnhancedChatOpen(true)} 
       />
       <main>
         {renderPage()}
@@ -143,6 +146,7 @@ const App: React.FC = () => {
       <FloatingBotButton onOpen={() => setIsBotOpen(true)} />
       <SimpleInsuranceBotModal isOpen={isBotOpen} onClose={() => setIsBotOpen(false)} />
       <HIPAACompliantAIChat isOpen={isHIPAAChatOpen} onClose={() => setIsHIPAAChatOpen(false)} />
+      <EnhancedAIChat isOpen={isEnhancedChatOpen} onClose={() => setIsEnhancedChatOpen(false)} />
       
       {/* Vercel Analytics & Speed Insights - Automatically tracks page views and performance */}
       <Analytics />

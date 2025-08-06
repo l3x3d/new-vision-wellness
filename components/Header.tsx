@@ -6,9 +6,10 @@ import { SparklesIcon, MenuIconSVG, XIconSVG } from './IconComponents';
 interface HeaderProps {
   onOpenModal: () => void;
   onOpenHIPAAChat?: () => void;
+  onOpenEnhancedChat?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onOpenModal, onOpenHIPAAChat }) => {
+const Header: React.FC<HeaderProps> = ({ onOpenModal, onOpenHIPAAChat, onOpenEnhancedChat }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -97,10 +98,24 @@ const Header: React.FC<HeaderProps> = ({ onOpenModal, onOpenHIPAAChat }) => {
                           });
                           onOpenHIPAAChat();
                         }}
-                        className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+                        className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md mb-1"
                       >
                         🔒 HIPAA-Compliant AI Chat
                       </button>
+                      {onOpenEnhancedChat && (
+                        <button
+                          onClick={() => {
+                            track('enhanced_ai_chat_clicked', {
+                              location: 'header_dropdown',
+                              button_text: 'Enhanced AI Companion'
+                            });
+                            onOpenEnhancedChat();
+                          }}
+                          className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+                        >
+                          ✨ Enhanced AI Companion (Gemini 2.5)
+                        </button>
+                      )}
                     </div>
                   </div>
                 )}
@@ -162,6 +177,21 @@ const Header: React.FC<HeaderProps> = ({ onOpenModal, onOpenHIPAAChat }) => {
                     className="bg-green-600 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-green-700 transition-all transform hover:scale-105"
                 >
                     🔒 HIPAA AI Chat
+                </button>
+              )}
+              {onOpenEnhancedChat && (
+                <button
+                    onClick={() => {
+                        track('enhanced_ai_chat_mobile_clicked', {
+                          location: 'mobile_menu',
+                          button_text: 'Enhanced AI Companion'
+                        });
+                        setIsMenuOpen(false);
+                        onOpenEnhancedChat();
+                    }}
+                    className="bg-purple-600 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-purple-700 transition-all transform hover:scale-105"
+                >
+                    ✨ Enhanced AI Companion
                 </button>
               )}
             </div>
